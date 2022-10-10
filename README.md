@@ -8,6 +8,12 @@
 | docker | v18.02.0+ |
 | docker-compose | v2.2.2+ |
 
+### Recommended minimum hardware configuration
+
+cpu : 4core
+mem : 8G
+disk: 40G
+
 ### install docker
 ```
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
