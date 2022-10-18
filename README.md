@@ -41,6 +41,7 @@ git clone https://github.com/UDPN/BN-Sandbox-selfservice-public
   
   `sudo docker-compose down`  
 - Register to Validator Node
+
   By now, your BN instance has been started successfully.  Now, you need to follow the user guide and start to register to VN via url-to-manual
 
 ### upgrade
