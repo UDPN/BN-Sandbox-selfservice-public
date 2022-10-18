@@ -40,6 +40,8 @@ git clone https://github.com/UDPN/BN-Sandbox-selfservice-public
 - stop BN
   
   `sudo docker-compose down`  
+- Register to Validator Node
+  By now, your BN instance has been started successfully.  Now, you need to follow the user guide and start to register to VN via url-to-manual
 
 ### upgrade
 
@@ -58,7 +60,7 @@ Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there is any 
 - bn-web
     http://localhost:8080/
 
-## .env configure
+## .env configure (advanced)
 
 | BN-server item | Description |
 | ------------------------- | ------------------------------------- |
@@ -84,7 +86,7 @@ Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there is any 
 vninit.yml and did_proxy.properties, The file is the configuration file for connecting to the VN. 
 To change the VN environment, you need to replace the corresponding configuration file.
 
-### mysql
+### mysql (advanced)
 
 ```
         - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -105,7 +107,7 @@ To change the VN environment, you need to replace the corresponding configuratio
 
 If you do not have master-slave MYSQL, you can configure the content from the master to the master.
 
-### redis
+### redis (advanced)
 
 ```
         - spring.redis.host=${REDIS_HOST}
@@ -120,13 +122,6 @@ If you do not have master-slave MYSQL, you can configure the content from the ma
 | REDIS_PORT | Your REDIS accessible port |
 | REDIS_DATABASE | REDIS databases number |
 | REDIS_PASSWORD |  The corresponding password of your MYSQL user |
-
-## Access the network independently
-
-After the BN deployment is completed, please connect to the network independently. 
-The help manual for network access is as follows:
-
-http://xxxx
 
 ## contact us
 Email: xxxx@xxxx.com
