@@ -1,4 +1,4 @@
-# Setup Business Node(BN) with Use docker-compose
+# Setup Business Node(BN) with docker-compose
 
 
 ## System prerequisites
