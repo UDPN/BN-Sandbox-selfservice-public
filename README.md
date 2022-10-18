@@ -1,12 +1,12 @@
-# Use Docker-compose to setup Business Node(BN) from scratch
+# Setup Business Node(BN) with Use docker-compose
 
 
 ## System prerequisites
 
 | Configuration item | Description version number |
 | ------------------------- | ------------------------------------- |
-| docker | v18.02.0+ |
-| docker-compose | v2.2.2+ |
+| docker | v18.02.0 |
+| docker-compose | v2.2.2 |
 | Ubuntu | v20.04 |
 
 ### Minimum hardware spec
