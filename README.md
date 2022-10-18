@@ -3,7 +3,7 @@
 
 ## System prerequisites
 
-| Configuration item | Description version number |
+| Tools | version number(tested) |
 | ------------------------- | ------------------------------------- |
 | docker | v18.02.0 |
 | docker-compose | v2.2.2 |
