@@ -44,12 +44,6 @@ git clone https://github.com/UDPN/BN-Sandbox-selfservice-public
 
   By now, your BN instance has been started successfully.  Now, you need to follow the user guide and start to register to VN via url-to-manual
 
-### upgrade
-
-1. Stop BN docker-compose
-2. Fetch the latest jar file by "cd BN-Sandbox-selfservice-public; git fetch"
-3. Start BN again
-
 ### Web addresses used in BN service
 
 Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there is any conflict, please modify the .env file.
@@ -60,6 +54,12 @@ Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there is any 
     http://localhost/
 - bn-web
     http://localhost:8080/
+
+### upgrade (optional)
+
+1. Stop BN docker-compose
+2. Fetch the latest jar file by "cd BN-Sandbox-selfservice-public; git fetch"
+3. Start BN again
 
 ## .env configure (advanced)
 
