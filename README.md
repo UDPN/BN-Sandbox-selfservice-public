@@ -3,17 +3,20 @@
 
 ## System prerequisites
 
-| Tools | version number(tested) |
-| ------------------------- | ------------------------------------- |
-| docker | v18.02.0 |
-| docker-compose | v2.2.2 |
-| Ubuntu | v20.04 |
-
 ### Minimum hardware spec
 
 cpu : 4core
 mem : 8G
 disk: 40G
+
+### OS and tools
+
+| Tools | version number(tested) |
+| ------------------------- | ------------------------------------- |
+| Ubuntu | v20.04 |
+| docker | v18.02.0 |
+| docker-compose | v2.2.2 |
+
 
 ### tips to install docker 
 ```
