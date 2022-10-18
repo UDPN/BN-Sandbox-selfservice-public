@@ -1,30 +1,31 @@
-# docker-compose
+# Use Docker-compose to setup Business Node(BN) from scratch
 
 
-## Integrated environment
+## System prerequisites
 
 | Configuration item | Description version number |
 | ------------------------- | ------------------------------------- |
 | docker | v18.02.0+ |
 | docker-compose | v2.2.2+ |
+| Ubuntu | v20.04 |
 
-### Recommended minimum hardware configuration
+### Minimum hardware spec
 
 cpu : 4core
 mem : 8G
 disk: 40G
 
-### install docker
+### tips to install docker 
 ```
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
 
-### install docker-compose
+### tips to install docker-compose
 ```
 sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## command
+## Steps to install BN instance
 
 - repo download and clone
 ```
@@ -40,13 +41,14 @@ git clone https://github.com/UDPN/BN-Sandbox-selfservice-public
   
   `sudo docker-compose down`  
 
-### upgrade iterative
+### upgrade
 
-The directory where the JAR file is located docker-compoes/bnserver. 
-After you stop BN docker-compose, replace the source file with the new version of JAR, and then run BN docker-compose again.
-You can download the latest JAR from https://github.com/UDPN/BN-Sandbox-selfservice-public/docker-compose/bnserver/*.jar.
+1. Stop BN docker-compose
+2. Fetch the latest jar file by "cd BN-Sandbox-selfservice-public; git fetch"
+3. Start BN again
 
-### after deployment web address
+### Web addresses used in BN service
+
 Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there is any conflict, please modify the .env file.
 
 - EUREKA
