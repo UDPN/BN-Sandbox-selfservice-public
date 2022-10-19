@@ -171,7 +171,7 @@ services:
         - TZ=Asia/Shanghai
         - server.port=${BN_PERMISSION_PORT}
         - logging.logpath=${LOG_SAVE_DIR}
-        - logging.level.root=debug
+        - logging.level.root=info
         - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
         - mysql.master.username=${MYSQL_USER}
         - mysql.master.password=${MYSQL_PWD}
@@ -199,7 +199,7 @@ services:
         - TZ=Asia/Shanghai
         - server.port=${BN_PROCESS_PORT}
         - logging.logpath=${LOG_SAVE_DIR}
-        - logging.level.root=debug
+        - logging.level.root=info
         - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
         - mysql.master.username=${MYSQL_USER}
         - mysql.master.password=${MYSQL_PWD}
