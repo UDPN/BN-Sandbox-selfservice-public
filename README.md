@@ -13,9 +13,9 @@ disk: 40G
 
 | Tools | version number(tested) |
 | ------------------------- | ------------------------------------- |
-| Ubuntu | v20.04 |
-| docker | v18.02.0 |
-| docker-compose | v2.2.2 |
+| Ubuntu | v20.04.04 |
+| docker | v20.10.18 |
+| docker-compose | v1.27.3 |
 
 
 ### tips to install docker 
@@ -32,7 +32,7 @@ sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.27.3/do
 
 - repo download and clone
 ```
-git clone https://github.com/UDPN/BN-Sandbox-selfservice-public
+git lfs clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
 ```
 - Enter the BN docker-compose directory
   
