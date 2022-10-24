@@ -32,7 +32,8 @@ sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.27.3/do
 
 - repo download and clone
 ```
-git lfs clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
+sudo apt-get install git-lfs
+git lfs clone https://github.com/UDPN/BN-Sandbox-selfservice-public.git
 ```
 - Enter the BN docker-compose directory
   
