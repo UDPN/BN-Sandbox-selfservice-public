@@ -64,7 +64,7 @@ sudo docker-compose down
 **How to register your business node with a Validator Node?**
 
 Now that your Business Node instance has started successfully, please
-follow the user guide to register with a Validator Node via
+follow the user guide to register with a Validator Node via [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md)
 
 **Web addresses used in BN service**
 
