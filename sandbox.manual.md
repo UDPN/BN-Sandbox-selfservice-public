@@ -2,11 +2,11 @@
 
 
 
-1.  Generate a DID Document
-    ==========================
+Generate a DID Document
+==========================
 
-    1.  Log in to the sandbox system
-        ----------------------------
+Log in to the sandbox system
+----------------------------
 
 Open the Sandbox UI (<http://localhost/>) and log in to the Sandbox with the following credentials：
 
@@ -32,10 +32,10 @@ Next, execute the following command: java -jar udpn-did-SDK-1.0.0.jar
 Register a Business Node on the UDPN
 ====================================
 
-1.  
 
-    1.  Log in to the BN system
-        -----------------------
+
+Log in to the BN system
+-----------------------
 
 Open the BN UI([<span
 class="underline">http://localhost:8080/</span>](http://localhost:8080/))
