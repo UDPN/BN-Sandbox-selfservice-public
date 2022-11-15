@@ -221,8 +221,8 @@ mysql.slave.url=jdbc:mysql://${MYSQL\_SLAVE\_HOST}:${MYSQL\_SLAVE\_PORT}/${MYSQL
 </tbody>
 </table>
 
-If you do not have master-slave MYSQL, you can configure the content
-from the master to the master.
+If you do not have master-slave MYSQL, you can use the same content
+from mysql.master.* to the mysql.slave.*.
 
 **redis (advanced)**
 
