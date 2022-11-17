@@ -1,12 +1,15 @@
 **Setup a Business Node(BN) with docker-compose**
+<br/>
+<br/>
+
 
 **System prerequisites**
 
-**Minimum hardware spec**
+***Minimum hardware spec***
 
 CPU/Mem/Disk : 4-core/8G/40G
 
-**OS and tools**
+***OS and tools***
 
 <table>
 <tbody>
@@ -29,17 +32,19 @@ CPU/Mem/Disk : 4-core/8G/40G
 </tbody>
 </table>
 
-**Install docker**
+***Tips to Install docker***
 
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
-**Install docker-compose**
+***Tips to Install docker-compose***
 
 sudo curl -L
 "https://get.daocloud.io/docker/compose/releases/download/1.27.3/docker-compose-$(uname
 -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x
 /usr/local/bin/docker-compose
 
+<br/>
+<br/>
 **Steps to install a Business Node instance**
 
 *Step 1: Download and clone the repo*
