@@ -1,9 +1,11 @@
-**Setup a Business Node(BN) with docker-compose**
+Setup a Business Node(BN) with docker-compose
+==========================
 <br/>
 <br/>
 
 
-**System prerequisites**
+System prerequisites
+==========================
 
 ***Minimum hardware spec***
 
@@ -52,7 +54,8 @@ sudo curl -L
 <br/>
 <br/>
 
-**Steps to install a Business Node instance**
+Steps to install a Business Node instance
+==========================
 
 *Step 1: Download and clone the repo*
 
