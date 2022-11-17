@@ -9,6 +9,8 @@
 
 CPU/Mem/Disk : 4-core/8G/40G
 
+<br/>
+
 ***OS and tools***
 
 <table>
@@ -32,9 +34,13 @@ CPU/Mem/Disk : 4-core/8G/40G
 </tbody>
 </table>
 
+<br/>
+
 ***Tips to Install docker***
 
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+<br/>
 
 ***Tips to Install docker-compose***
 
@@ -55,22 +61,32 @@ sudo apt-get install git-lfs
 git lfs clone [<span
 class="underline">https://github.com/UDPN/BN-Sandbox-selfservice-public.git</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public.git)
 
+<br/>
+
 *Step 2: cd into the Business Node docker-compose directory*
 
 cd BN-Sandbox-selfservice-public/docker-compose
+
+<br/>
 
 *Step 3: Start the Business Node*
 
 sudo docker-compose up -d
 
+<br/>
+
 **How to stop the Business Node?**
 
 sudo docker-compose down
+
+<br/>
 
 **How to register your business node with a Validator Node?**
 
 Now that your Business Node instance has started successfully, please
 follow the user guide to register with a Validator Node via [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md)
+
+<br/>
 
 **Web addresses used in BN service**
 
@@ -86,6 +102,8 @@ is any conflict, please modify the .env file.
 -   bn-web [<span
     class="underline">http://localhost:8080/</span>](http://localhost:8080/)
 
+<br/>
+
 **Upgrade (optional)**
 
 1.  Stop the BN with docker-compose
@@ -94,6 +112,8 @@ is any conflict, please modify the .env file.
     BN-Sandbox-selfservice-public; git fetch"
 
 3.  Start BN again
+
+<br/>
 
 **.env Advanced Configuration**
 
@@ -182,6 +202,8 @@ vninit.yml and did\_proxy.properties: These files are the configuration
 files to connect to the VN. You need to replace the configuration file
 to change the VN environment.
 
+<br/>
+
 **MySQL Advanced Setup**
 
 \-
@@ -230,6 +252,8 @@ mysql.slave.url=jdbc:mysql://${MYSQL\_SLAVE\_HOST}:${MYSQL\_SLAVE\_PORT}/${MYSQL
 If you do not have master-slave MYSQL, you can use the same content
 from mysql.master.* to the mysql.slave.*.
 
+<br/>
+
 **redis (advanced)**
 
 \- spring.redis.host=${REDIS\_HOST}
@@ -264,5 +288,7 @@ from mysql.master.* to the mysql.slave.*.
 </tr>
 </tbody>
 </table>
+
+<br/>
 
 **contact us**
