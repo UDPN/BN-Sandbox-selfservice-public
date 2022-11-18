@@ -19,7 +19,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_PWD}
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.100
+        ipv4_address: 172.16.137.100
 
   redis:
     image: redis:6.2.5
@@ -39,7 +39,7 @@ services:
     privileged: true
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.101
+        ipv4_address: 172.16.137.101
 
 
   bneureka:
@@ -62,7 +62,7 @@ services:
         - ${EUREKA_PORT}:${EUREKA_PORT}
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.102
+        ipv4_address: 172.16.137.102
 
   bninit:
     image: openjdk:8u102-jre
@@ -107,7 +107,7 @@ services:
       - bneureka
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.103
+        ipv4_address: 172.16.137.103
 
   bngateway:
     image: openjdk:8u102-jre
@@ -130,7 +130,7 @@ services:
       - bninit
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.104
+        ipv4_address: 172.16.137.104
 
   bnevent:
     image: openjdk:8u102-jre
@@ -158,7 +158,7 @@ services:
       - bninit
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.105
+        ipv4_address: 172.16.137.105
 
   bnpermission:
     image: openjdk:8u102-jre
@@ -186,7 +186,7 @@ services:
       - bninit
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.106
+        ipv4_address: 172.16.137.106
 
   bnprocess:
     image: openjdk:8u102-jre
@@ -226,7 +226,7 @@ services:
       - bninit
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.107
+        ipv4_address: 172.16.137.107
 
   nginx:
     image: nginx:latest
@@ -244,11 +244,11 @@ services:
       - bngateway
     networks:
       udpn-bn:
-        ipv4_address: 172.16.139.108
+        ipv4_address: 172.16.137.108
 
 networks:
   udpn-bn:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.16.139.0/24
+        - subnet: 172.16.137.0/24

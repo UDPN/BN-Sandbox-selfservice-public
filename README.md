@@ -73,10 +73,7 @@ git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
 ```
 cd BN-Sandbox-selfservice-public/docker-compose/bnserver
 wget http://download.sandbox.udpn.io/bnserver.zip
-shasum -c 
-gunzip bnserver.zip.gz
-unzip bnserver.zip
-#password is n345gfEDqwzsx
+unzip -P n345gfEDqwzsx bnserver.zip
 ```
 
 <br/>
