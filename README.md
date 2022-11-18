@@ -59,21 +59,25 @@ Steps to install a Business Node instance
 
 *Step 1: Download and clone the repo*
 
-#use https as below or git@github.com:UDPN/BN-Sandbox-selfservice-public.git
-git clone [<span
-class="underline">https://github.com/UDPN/BN-Sandbox-selfservice-public.git</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public.git)
+```
+#use https as below or use git@github.com:UDPN/BN-Sandbox-selfservice-public.git as alternative.
+git clone https://github.com/UDPN/BN-Sandbox-selfservice-public.git
+or
+git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
+```
 
 <br/>
 
 *Step 2: cd into the Business Node docker-compose directory*
 
-cd BN-Sandbox-selfservice-public/docker-compose
+```
+cd BN-Sandbox-selfservice-public/docker-compose/bnserver
 wget http://download.sandbox.udpn.io/bnserver.zip
 shasum -c 
 gunzip bnserver.zip.gz
 unzip bnserver.zip
 #password is n345gfEDqwzsx
-
+```
 
 <br/>
 
