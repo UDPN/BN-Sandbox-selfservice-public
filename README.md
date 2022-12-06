@@ -71,7 +71,7 @@ git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
 *Step 2: cd into the Business Node docker-compose directory*
 
 ```
-cd BN-Sandbox-selfservice-public/docker-compose/bnserver
+cd BN-Sandbox-selfservice-public/docker-compose
 wget http://download.sandbox.udpn.io/bn-server-web.zip
 unzip -P n345gfEDqwzsx bn-server-web.zip
 cd ..
