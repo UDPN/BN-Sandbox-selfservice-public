@@ -75,7 +75,7 @@ cd BN-Sandbox-selfservice-public/docker-compose/bnserver
 wget http://download.sandbox.udpn.io/bnserver.zip
 unzip -P n345gfEDqwzsx bnserver.zip
 cd ..
-sudo chmod -R 777 nginx
+sudo chmod -R 777 nginx mysql
 ```
 
 <br/>
