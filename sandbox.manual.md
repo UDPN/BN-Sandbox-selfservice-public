@@ -12,7 +12,7 @@ Open the Sandbox UI (<http://localhost/>) and log in to the Sandbox with the fol
 
 **Username: admin**
 
-Password: abcd1234
+Password: Abcd1234
 
 Download the UDPN DID Java Archive
 -------------------------------
@@ -43,7 +43,7 @@ class="underline">http://localhost:8080/</span>](http://localhost:8080/))
 
 **Username: admin**
 
-Password: abcd1234
+Password: Abcd1234
 
 Apply for Business Node onboarding
 ----------------------
