@@ -72,8 +72,8 @@ git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose/bnserver
-wget http://download.sandbox.udpn.io/bnserver.zip
-unzip -P n345gfEDqwzsx bnserver.zip
+wget http://download.sandbox.udpn.io/bn-server-web.zip
+unzip -P n345gfEDqwzsx bn-server-web.zip
 cd ..
 sudo chmod -R 777 nginx mysql bnserver
 ```
