@@ -115,8 +115,10 @@ is any conflict, please modify the .env file.
 <br/>
 
 **BN API tutorial**
+
 If you are going to develop your application and call BN API endpoint, please follow this [BN_API_User_Tutorial](BN_API_User_Tutorial.md)
 
+<br>
 **Upgrade (optional)**
 
 1.  Stop the BN with docker-compose
