@@ -126,7 +126,7 @@ Transfer
 “Transfer” means moving funds between two accounts in the same digital
 currency system.
 
-##### Pre-processing
+#### Pre-processing
 
 For a given transfer, query all possible TNs which could process the
 transfer.
@@ -140,7 +140,7 @@ the UDPN.
 [<span
 class="underline">http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select</span>](http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select)
 
-##### Permit
+#### Permit
 
 Once a transaction node is chosen to process the transfer, use this API
 to collect the relevalt public chain package details.
@@ -155,7 +155,7 @@ cannot be shared and must be safeguarded locally.
 [<span
 class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select</span>](http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select)
 
-##### Send a Transfer transaction request
+#### Send a Transfer transaction request
 
 Send a transfer transaction request
 
@@ -171,7 +171,7 @@ SWAP
 “SWAP” means moving funds between two accounts in two distinct currency
 systems.
 
-##### Pre-processing
+#### Pre-processing
 
 For a given SWAP, query all possible TNs which could process the swap.
 
@@ -184,7 +184,7 @@ the UDPN.
 [<span
 class="underline">http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select</span>](http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select)
 
-##### Permit
+#### Permit
 
 Once a transaction node is chosen to process the SWAP, use this API to
 collect the relevant public chain package details.
@@ -199,7 +199,7 @@ cannot be shared and must be safeguarded locally.
 [<span
 class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select</span>](http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select)
 
-##### Send Swap transaction
+#### Send Swap transaction
 
 Send SWAP transaction.
 
@@ -212,14 +212,14 @@ class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/mana
 Retrieve the Transfer/SWAP list
 -------------------------------
 
-##### Query transaction list
+#### Query transaction list
 
 Used to query all the transactions initiated by the business node
 
 [<span
 class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/swap/transfer/select</span>](http://localhost/v1/udpn/processing/digital/currency/swap/manage/swap/transfer/select)
 
-##### Query transaction detail by transaction ID：
+#### Query transaction detail by transaction ID：
 
 [<span
 class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/swap/transfer/detail/select</span>](http://localhost/v1/udpn/processing/digital/currency/swap/manage/swap/transfer/detail/select)
