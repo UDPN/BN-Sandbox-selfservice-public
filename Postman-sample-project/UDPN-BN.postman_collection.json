@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "4e91e9e8-e35c-4c83-8e9b-101081d9475c",
+		"name": "UDPN-BN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clientName\": \"admin\",\r\n  \"pwd\": \"Abcd1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/login/manage/login",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"login",
+						"manage",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.Upload DID document",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"didDocument\":\"{\\\"authentication\\\":{\\\"publicKey\\\":\\\"8154598569442942019330882306571585567047670187996239007658464462645788175259018405958505064306799540157198386374510356292064493993162662357649634708324885\\\",\\\"type\\\":\\\"Secp256k1\\\"},\\\"created\\\":\\\"2021-07-09 13:02:01\\\",\\\"did\\\":\\\"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\\\",\\\"proof\\\":{\\\"creator\\\":\\\"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\\\",\\\"signatureValue\\\":\\\"4YBlKukfbV4gD9Yj965OHeI6A9/RHsa3mgA56Z3WBqo1EEFTx1uwg4c1VVfj1t0gF79u0iaQFGttK3v7Y6tMuRs=\\\",\\\"type\\\":\\\"Secp256k1\\\"},\\\"recovery\\\":{\\\"publicKey\\\":\\\"11233567841263060652743566615047880461866170048377567890286167496121196076577311041290361326257875320917727310818936583391157566792854152041021891953722310\\\",\\\"type\\\":\\\"Secp256k1\\\"},\\\"updated\\\":\\\"2021-07-09 13:02:01\\\",\\\"version\\\":\\\"1\\\"}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/did/manage/did/document/upload",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"did",
+						"manage",
+						"did",
+						"document",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.Llink DID to account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"did\":\"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\",\r\n  \"currencyType\":\"USDC\",\r\n  \"platformType\":[\"ETH\"],\r\n  \"currencyAccount\":\"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n  \"briefIntroduction\":\"USDC-ETH\",\r\n  \"isDefault\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/account/bind/manage/save",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"account",
+						"bind",
+						"manage",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.Swap pre-process",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"did\": \"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\",\r\n   \"fromCurrencyType\": \"USDC\",\r\n   \"formPlatformType\": \"ETH\",\r\n   \"sourceAccountAddress\": \"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n   \"swapAmount\": 1,\r\n   \"beneficiaryType\": \"2\",\r\n   \"targetAccountAddress\": \"0x1115C664c7496b28EE5f31802FF00d5C392E46a3\",\r\n   \"toCurrencyType\": \"EURS\",\r\n   \"toPlatformType\": \"ETH\",\r\n   \"fromBankAccount\": \"\",\r\n   \"toBankAccount\": \"\",\r\n   \"beneficiaryName\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/searchs",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"digital",
+						"currency",
+						"swap",
+						"manage",
+						"searchs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.Permit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"originalTnCode\": \"TN0000018\",\r\n  \"privateKey\": \"0x8d2e94f6b15ef64577e5adc58c6723ca50efcebdf9ae3373147c16bb9cff354c\",\r\n  \"serviceFee\": 2.6588,\r\n  \"sourceAccountAddress\": \"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n  \"swap\": true,\r\n  \"targetAccountAddress\": \"0xe8522b26734e9712e12478c142749276b329d6f2\",\r\n  \"transAmount\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"digital",
+						"currency",
+						"swap",
+						"manage",
+						"permit",
+						"select"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.Send swap transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"beneficiaryName\": \"\",\r\n  \"beneficiaryType\": \"2\",\r\n  \"did\": \"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\",\r\n  \"fromBankAccount\": \"\",\r\n  \"fromCurrencyType\": \"USDC\",\r\n  \"fromPlatformType\": \"ETH\",\r\n  \"fxRate\": 1.056,\r\n  \"key\": \"VN0000001_BN0000050_cca524f5d349413e83118a0bc88cc74e1671086649102\",\r\n  \"originalTnCode\": \"TN0000018\",\r\n  \"originalTnServiceFee\": 1.05,\r\n  \"serviceFee\": 2.6588,\r\n  \"sourceAccountAddress\": \"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n  \"swapAmount\": 1,\r\n  \"targetAccountAddress\": \"0x1115C664c7496b28EE5f31802FF00d5C392E46a3\",\r\n  \"targetTnCode\": \"TN0000030\",\r\n  \"targetTnServiceFee\": 1.1088,\r\n  \"tnSecurityMsg\": \"2,HA==_yBkxwPCVEWPD58HlxrSL+KoA+kFtWGyGRRsSGPqJ6Hs=_G8vNszGqPyZDwspuuhTz6aI3gBdkydf9ZF9/H5tfsfs=_AYU4kKBP\",\r\n  \"toAmount\": 1.06,\r\n  \"toBankAccount\": \"\",\r\n  \"toCurrencyType\": \"USDP\",\r\n  \"toPlatformType\": \"ETH\",\r\n  \"totalAmount\": 3.6588,\r\n  \"vnServiceFee\": 0.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/save",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"digital",
+						"currency",
+						"swap",
+						"manage",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.Query transaction status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"key\": \"VN0000001_BN0000050_cca524f5d349413e83118a0bc88cc74e1671086649102\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/transaction/by/key/select",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"digital",
+						"currency",
+						"swap",
+						"manage",
+						"transaction",
+						"by",
+						"key",
+						"select"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.Transfer  pre-process",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"beneficiaryType\": \"2\",\r\n  \"currencyType\": \"USDC\",\r\n  \"did\": \"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\",\r\n  \"platformType\": \"ETH\",\r\n  \"sourceAccountAddress\": \"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n  \"targetAccountAddress\": \"0xe8522b26734e9712e12478c142749276b329d6f2\",\r\n  \"transferAmount\": 1,\r\n  \"beneficiaryName\": \"\",\r\n  \"fromBankAccount\": \"\",\r\n  \"toBankAccount\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/transfer/manage/searchs",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"transfer",
+						"manage",
+						"searchs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.Permit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"originalTnCode\": \"TN0000018\",\r\n  \"privateKey\": \"0x8d2e94f6b15ef64577e5adc58c6723ca50efcebdf9ae3373147c16bb9cff354c\",\r\n  \"serviceFee\": 1.55,\r\n  \"sourceAccountAddress\": \"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n  \"swap\": true,\r\n  \"targetAccountAddress\": \"0xe8522b26734e9712e12478c142749276b329d6f2\",\r\n  \"transAmount\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"digital",
+						"currency",
+						"swap",
+						"manage",
+						"permit",
+						"select"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.Send transfer transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"beneficiaryName\": \"\",\r\n  \"beneficiaryType\": \"2\",\r\n  \"currencyType\": \"USDC\",\r\n  \"did\": \"did:udpn:2VMMMzRV1BYfXozS9w4Eo956TnyM\",\r\n  \"fromBankAccount\": \"\",\r\n  \"key\": \"VN0000001_BN0000050_eb95ca67ddc847f489b318f764ed26531671087739338\",\r\n  \"originalTnCode\": \"TN0000018\",\r\n  \"originalTnServiceFee\": 1.05,\r\n  \"platformType\": \"ETH\",\r\n  \"serviceFee\": 1.55,\r\n  \"sourceAccountAddress\": \"0x349c666566fcD9eB2f1BCc68823b919641254d4e\",\r\n  \"targetAccountAddress\": \"0xe8522b26734e9712e12478c142749276b329d6f2\",\r\n  \"tnSecurityMsg\": \"0,Gw==_rCwqnzXbhJYtuwoApgveve174H3ZkQ+fwHdFjgoJs9c=_UEQEsFu0dVYybQ2OU4+G7nOUeU/01PdgG2aLEx2Na3M=_AYU4pLUO\",\r\n  \"toBankAccount\": \"\",\r\n  \"totalAmount\": 2.55,\r\n  \"transferAmount\": 1,\r\n  \"vnServiceFee\": 0.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/transfer/manage/save",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"transfer",
+						"manage",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11.Query transaction status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"key\": \"VN0000001_BN0000050_eb95ca67ddc847f489b318f764ed26531671087739338\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/transaction/by/key/select",
+					"protocol": "http",
+					"host": [
+						"16",
+						"163",
+						"41",
+						"139"
+					],
+					"port": "180",
+					"path": [
+						"v1",
+						"udpn",
+						"processing",
+						"digital",
+						"currency",
+						"swap",
+						"manage",
+						"transaction",
+						"by",
+						"key",
+						"select"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
