@@ -23,12 +23,8 @@
 					"raw": "http://localhost/v1/udpn/processing/login/manage/login",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -59,12 +55,8 @@
 					"raw": "http://localhost/v1/udpn/processing/did/manage/did/document/upload",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -97,12 +89,8 @@
 					"raw": "http://localhost/v1/udpn/processing/account/bind/manage/save",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -134,12 +122,8 @@
 					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/searchs",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -172,12 +156,8 @@
 					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -211,12 +191,8 @@
 					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/save",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -249,12 +225,8 @@
 					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/transaction/by/key/select",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -290,12 +262,8 @@
 					"raw": "http://localhost/v1/udpn/processing/transfer/manage/searchs",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -326,12 +294,8 @@
 					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -365,12 +329,8 @@
 					"raw": "http://localhost/v1/udpn/processing/transfer/manage/save",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
@@ -401,12 +361,8 @@
 					"raw": "http://localhost/v1/udpn/processing/digital/currency/swap/manage/transaction/by/key/select",
 					"protocol": "http",
 					"host": [
-						"16",
-						"163",
-						"41",
-						"139"
+						"localhost"
 					],
-					"port": "180",
 					"path": [
 						"v1",
 						"udpn",
