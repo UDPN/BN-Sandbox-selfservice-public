@@ -6,7 +6,7 @@ Before using this manual, you need access to one existing Business Node
 class="underline">Setup a Business Node(BN) with
 docker-compose</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public)
 (Please ensure to complete the onboarding process).
-
+<br><br><br>
 Please read UDPN white paper first to understand the high-level
 architecture of the UDPN better. The latest version of the UDPN white
 paper can be downloaded:
@@ -18,7 +18,7 @@ paper can be downloaded:
 3.  Or from your sandbox instance if you have one: [<span
     class="underline">https://\*.sandbox.udpn.io</span>](https://*.sandbox.udpn.io)
     -&gt; Home -&gt; “Download Whitepaper”
-
+<br><br><br>
 Please note that the details regarding the API parameters can be found
 via Swagger API:
 
@@ -38,6 +38,8 @@ class="underline">https://bngateway-yourDomainURL/swg/swagger-ui/index.html</spa
 [<span
 class="underline">https://bngateway-rd.sandbox.udpn.io/swg/swagger-ui/index.html</span>](https://bngateway-rd.sandbox.udpn.io/swg/swagger-ui/index.html)
 
+<br><br><br>
+
 Summary of API use for sending transfer or SWAP transactions on behalf
 of your end user:
 
@@ -50,9 +52,18 @@ the BN locally via [<span class="underline">Setup a Business Node(BN)
 with
 docker-compose</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public).
 
+<br><br>
+
 In addition to this tutorial, we will provide a PostMan project
 demonstrating how to use the API calls introduced below to complete a
 SWAP transaction.
+
+Sample Postman project
+----------------------
+
+In the directory [Postman-sample-project](Postman-sample-project), you may find a sample Postman project for you to quick study BN API usage.
+
+<br><br>
 
 Note: Again, All URLs in following chapters come from setting up the BN
 locally via [<span class="underline">Setup a Business Node(BN) with
