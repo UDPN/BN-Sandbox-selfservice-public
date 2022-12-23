@@ -113,6 +113,8 @@ rm -rf redis/data/*
 
 sudo docker-compose up -d
 
+Note: Due to the addition of health detection and the control of sequential startup, the overall startup speed is slow. Please be patient.
+
 <br/>
 
 **How to stop the Business Node?**
