@@ -87,6 +87,7 @@ BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
 BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
 
 If you need to connect to our quasi production environment, please use the following configuration
+Note: The original data needs to be cleared when switching environments
 # #################################
 # #------staging config
 # #********************************
