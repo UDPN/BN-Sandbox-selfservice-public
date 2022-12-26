@@ -64,6 +64,8 @@ Steps to install a Business Node instance
 git clone https://github.com/UDPN/BN-Sandbox-selfservice-public.git
 or
 git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
+sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
+
 ```
 
 <br/>
