@@ -181,9 +181,9 @@ services:
       start_period: 60s 
 
 
-  bnevent:
+  bn1-event:
     image: udpnnetwork/bn-event:latest
-    container_name: bnevent
+    container_name: bn1-event
     restart: always
     volumes: 
         - ${BN_DATA_VOLUMES}:/data

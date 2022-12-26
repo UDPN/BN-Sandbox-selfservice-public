@@ -71,40 +71,42 @@ git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
 *Step 2: Production and quasi production configuration
 
 ```
-The default is sandbox production configuration
+The default is quasi production configuration
 #################################
-#------sandbox config 
+#------staging config
 #********************************
-VN_GATEWAY=https://vngateway.sandbox.udpn.io:443
-VN_CODE=VN0000001
+VN_GATEWAY=http://16.163.247.242:30081
+VN_CODE=UDPN000111
 # Please modify the following contents
 DID_PROXY_MODE=1
-DID_PROXY_URL=https://{ip}:{port}/v1/udpn/did/manage
-BESU_NODE_URL=https://vngateway.sandbox.udpn.io:443/besu
-BESU_NODE_PRIVATEKEY=81558146110441236696062019193516569978983436992581571730538671876174331431837
-BESU_DID_CONTADDRESS=0x33c8d39fabb6b303337243c1486ba808582466b3
-BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
-BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
+DID_PROXY_URL=http://{ip}:{port}/v1/udpn/did/manage
+BESU_NODE_URL=http://16.163.247.242:30081/besu
+BESU_NODE_PRIVATEKEY=43058870442585489105924017812119093828143936320321072321140103784621064736581
+BESU_DID_CONTADDRESS=0x1401f49199a4104d426a212b7d912c6b7635b0c6
+BESU_CPT_CONTADDRESS=0x2996130df7e249c843c944737f5ceacad646975e
+BESU_AUTHISSUERADDRESS=0xcbf2967e676cfc44ef7b1476f2040a93d5c16dbb
 
-If you need to connect to our quasi production environment, please use the following configuration
+If you need to connect to our sandbox production environment, please use the following configuration
 # #################################
-# #------staging config
+# #------sandbox config 
 # #********************************
-# VN_GATEWAY=http://16.163.247.242:30081
-# VN_CODE=UDPN000111
+# VN_GATEWAY=https://vngateway.sandbox.udpn.io:443
+# VN_CODE=VN0000001
 # # Please modify the following contents
 # DID_PROXY_MODE=1
-# DID_PROXY_URL=http://{ip}:{port}/v1/udpn/did/manage
-# BESU_NODE_URL=http://16.163.247.242:30081/besu
-# BESU_NODE_PRIVATEKEY=43058870442585489105924017812119093828143936320321072321140103784621064736581
-# BESU_DID_CONTADDRESS=0x1401f49199a4104d426a212b7d912c6b7635b0c6
-# BESU_CPT_CONTADDRESS=0x2996130df7e249c843c944737f5ceacad646975e
-# BESU_AUTHISSUERADDRESS=0xcbf2967e676cfc44ef7b1476f2040a93d5c16dbb
+# DID_PROXY_URL=https://{ip}:{port}/v1/udpn/did/manage
+# BESU_NODE_URL=https://vngateway.sandbox.udpn.io:443/besu
+# BESU_NODE_PRIVATEKEY=81558146110441236696062019193516569978983436992581571730538671876174331431837
+# BESU_DID_CONTADDRESS=0x33c8d39fabb6b303337243c1486ba808582466b3
+# BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
+# BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
 
 Note: The original data needs to be cleared when switching environments
-rm -rf mysql/data/*
-rm -rf redis/data/*
-
+sudo docker-compose down
+sudo rm -rf mysql/data/*
+sudo rm -rf redis/data/*
+Note the quasi production code and unlock the sandbox code.
+sudo docker-compose up -d
 ```
 
 <br/>
