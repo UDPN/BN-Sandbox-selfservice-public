@@ -73,7 +73,7 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 *Step 2: Production and quasi production configuration
 
 ```
-The default is quasi production configuration
+The default is sandbox production configuration
 # #################################
 # #------staging config
 # #********************************
@@ -88,7 +88,7 @@ The default is quasi production configuration
 # BESU_CPT_CONTADDRESS=0x2996130df7e249c843c944737f5ceacad646975e
 # BESU_AUTHISSUERADDRESS=0xcbf2967e676cfc44ef7b1476f2040a93d5c16dbb
 
-If you need to connect to our sandbox production environment, please use the following configuration
+If you need to connect to our quasi production environment, please use the following configuration
 #################################
 #------sandbox config 
 #********************************
