@@ -73,8 +73,11 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 *Step 2: (Optional) Production and quasi production configuration (in file BN-Sandbox-selfservice-public/docker-compose/.env)
 
 
+**Below is partial content in file BN-Sandbox-selfservice-public/docker-compose/.env for your reference only, please comment/uncomment the correspondig part in in file directly instead of copy/paste below content.**
 
 ```
+Note: please don't copy/paste below content directly
+
 The default is sandbox production configuration
 #################################
 #------sandbox config 
@@ -90,8 +93,10 @@ BESU_DID_CONTADDRESS=0x33c8d39fabb6b303337243c1486ba808582466b3
 BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
 BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
 
-If you need to connect to our quasi production environment, please use the following configuration 
-(in file BN-Sandbox-selfservice-public/docker-compose/.env)
+If you need to connect to our quasi production environment, please uncomment the following configuration 
+in file BN-Sandbox-selfservice-public/docker-compose/.env.
+
+Note: please don't copy/paste below content directly
 
 # #################################
 # #------staging config
@@ -113,7 +118,7 @@ Note: The mysql/redis data need to be cleared when switching environments
 sudo rm -rf mysql/data
 sudo rm -rf redis/data
 
-Comment/uncomment the other part in in file BN-Sandbox-selfservice-public/docker-compose/.env
+
 
 ```
 
