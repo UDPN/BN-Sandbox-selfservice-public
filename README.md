@@ -70,7 +70,9 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 
 <br/>
 
-*Step 2: Production and quasi production configuration
+*Step 2: (Optional) Production and quasi production configuration (in file BN-Sandbox-selfservice-public/docker-compose/.env)
+
+
 
 ```
 The default is sandbox production configuration
@@ -88,7 +90,7 @@ BESU_DID_CONTADDRESS=0x33c8d39fabb6b303337243c1486ba808582466b3
 BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
 BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
 
-If you need to connect to our quasi production environment, please use the following configuration
+If you need to connect to our quasi production environment, please use the following configuration (in file BN-Sandbox-selfservice-public/docker-compose/.env)
 # #################################
 # #------staging config
 # #********************************
@@ -103,19 +105,21 @@ If you need to connect to our quasi production environment, please use the follo
 # BESU_CPT_CONTADDRESS=0x2996130df7e249c843c944737f5ceacad646975e
 # BESU_AUTHISSUERADDRESS=0xcbf2967e676cfc44ef7b1476f2040a93d5c16dbb
 
-Note: The original data needs to be cleared when switching environments
-sudo docker-compose down
-sudo rm -rf mysql/data/*
-sudo rm -rf redis/data/*
+
+
+Note: The mysql/redis data need to be cleared when switching environments
+sudo rm -rf mysql/data
+sudo rm -rf redis/data
+
 Note the quasi production code and unlock the sandbox code.
-sudo docker-compose up -d
+
 ```
 
 <br/>
 
 *Step 3: Start the Business Node*
 
-sudo docker-compose up -d
+sudo docker-compose down; sudo docker-compose up -d
 
 Note: Due to the addition of health detection and the control of sequential startup, the overall startup speed is slow. Please be patient.
 
