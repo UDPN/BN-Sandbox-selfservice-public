@@ -73,7 +73,7 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 *Step 2: (Optional) Production and quasi production configuration (in file BN-Sandbox-selfservice-public/docker-compose/.env)
 
 
-**Below is partial content in file BN-Sandbox-selfservice-public/docker-compose/.env for your reference only, please comment/uncomment the correspondig part in in file directly instead of copy/paste below content.**
+**Below is partial content in file BN-Sandbox-selfservice-public/docker-compose/.env for your reference only, please comment/uncomment the correspondig part in in .env file directly instead of copy/paste below content.**
 
 ```
 Note: please don't copy/paste below content directly
