@@ -90,7 +90,9 @@ BESU_DID_CONTADDRESS=0x33c8d39fabb6b303337243c1486ba808582466b3
 BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
 BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
 
-If you need to connect to our quasi production environment, please use the following configuration (in file BN-Sandbox-selfservice-public/docker-compose/.env)
+If you need to connect to our quasi production environment, please use the following configuration 
+(in file BN-Sandbox-selfservice-public/docker-compose/.env)
+
 # #################################
 # #------staging config
 # #********************************
@@ -111,7 +113,7 @@ Note: The mysql/redis data need to be cleared when switching environments
 sudo rm -rf mysql/data
 sudo rm -rf redis/data
 
-Note the quasi production code and unlock the sandbox code.
+Comment/uncomment the other part in in file BN-Sandbox-selfservice-public/docker-compose/.env
 
 ```
 
