@@ -25,7 +25,8 @@ Generate the DID Document
 --------------------------
 
 Open the Command Line Interface and cd into the directory where you saved the Java Archive downloaded.
-Next, execute the following command: java -jar udpn-did-SDK-1.0.0.jar
+Next, execute the following command to generate "private key" "public key" and "signature": <br/> "java -jar udpn-did-SDK-&lt;version&gt;.jar signature"
+
 
 <img src="./media/image2.png" style="width:5.76389in;height:2.17639in" />
 
