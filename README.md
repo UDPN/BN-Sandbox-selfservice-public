@@ -168,10 +168,9 @@ If you are going to develop your application and call BN API endpoint, please fo
 <br>
 **Upgrade (optional)**
 
-1.  Stop the BN with docker-compose
+1.  Update the latest repo by run "git pull" in BN-Sandbox-selfservice-public/docker-compose
 
-2.  Fetch the latest jar file using the following command "cd
-    BN-Sandbox-selfservice-public; git fetch"
+2.  Upgrade all the images by run "bash upgrade-to-latest.sh" in BN-Sandbox-selfservice-public/docker-compose
 
 3.  Start BN again
 
