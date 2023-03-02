@@ -37,7 +37,7 @@ free -m >> "${RESULT_FILE}" 2>&1
 echo "" >> "${RESULT_FILE}"
 #for macOS  vm_stat
 echo "sysctl" >> "${RESULT_FILE}"
-sysctl -a >> "${RESULT_FILE}" 2>&1
+sysctl hw.memsize >> "${RESULT_FILE}" 2>&1
 echo "" >> "${RESULT_FILE}"
 echo "vm_stat" >> "${RESULT_FILE}"
 vm_stat >> "${RESULT_FILE}" 2>&1
