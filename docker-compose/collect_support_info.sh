@@ -13,7 +13,7 @@ DATE=$(date '+%Y-%m-%d')
 RESULT_FILE="${TEMP_DIR}/system_info.txt"
 
 # Check if required commands exist
-for COMMAND in "tar" "rm" "df" "uname" "free"; do
+for COMMAND in "tar" "rm" "df" "uname" ; do
     if ! command -v "${COMMAND}" > /dev/null; then
         echo "${COMMAND} command not found, cleaning up temp directory..."
         rm -rf "${TEMP_DIR}"
@@ -27,11 +27,21 @@ echo "" >> "${RESULT_FILE}"
 echo "Operating System information:" >> "${RESULT_FILE}"
 uname -a >> "${RESULT_FILE}" 2>&1
 echo "" >> "${RESULT_FILE}"
-echo "Memory information:" >> "${RESULT_FILE}"
-free -m >> "${RESULT_FILE}" 2>&1
-echo "" >> "${RESULT_FILE}"
+
 echo "Disk information:" >> "${RESULT_FILE}"
 df -h >> "${RESULT_FILE}" 2>&1
+
+echo "Memory information:" >> "${RESULT_FILE}"
+#for linux
+free -m >> "${RESULT_FILE}" 2>&1
+echo "" >> "${RESULT_FILE}"
+#for macOS  vm_stat
+echo "sysctl" >> "${RESULT_FILE}"
+sysctl -a >> "${RESULT_FILE}" 2>&1
+echo "" >> "${RESULT_FILE}"
+echo "vm_stat" >> "${RESULT_FILE}"
+vm_stat >> "${RESULT_FILE}" 2>&1
+echo "" >> "${RESULT_FILE}"
 
 # Get Docker and Docker-compose version
 docker version > "${TEMP_DIR}/docker_version.txt" 2> "${TEMP_DIR}/docker_version_err.txt"
