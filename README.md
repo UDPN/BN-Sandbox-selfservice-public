@@ -82,8 +82,12 @@ The default is sandbox production configuration
 #################################
 #------sandbox config 
 #********************************
-VN_GATEWAY=https://vngateway.sandbox.udpn.io:443
-VN_CODE=VN0000001
+VN_GATEWAY=http://16.163.247.242:30081
+VN_CODE=UDPN000111
+
+# Please configure your own DID Document private key
+DID_PRIVATE_KEY=xxxxxxxxxxxxxx
+
 # Please modify the following contents
 DID_PROXY_MODE=1
 DID_PROXY_URL=https://{ip}:{port}/v1/udpn/did/manage
