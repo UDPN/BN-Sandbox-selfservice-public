@@ -11,13 +11,10 @@ Please read UDPN white paper first to understand the high-level
 architecture of the UDPN better. The latest version of the UDPN white
 paper can be downloaded:
 
-1.  From UDPN official site soon (http://udpn.io)
+1.  From UDPN official site (http://udpn.io)
 
 2.  Shared by your dedicated UDPN contact person.
 
-3.  Or from your sandbox instance if you have one: [<span
-    class="underline">https://\*.sandbox.udpn.io</span>](https://*.sandbox.udpn.io)
-    -&gt; Home -&gt; “Download Whitepaper”
 <br><br><br>
 Please note that the details regarding the API parameters can be found
 via Swagger API:
