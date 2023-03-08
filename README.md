@@ -85,8 +85,8 @@ The default is sandbox production configuration
 VN_GATEWAY=http://16.163.247.242:30081
 VN_CODE=UDPN000111
 
-# Please configure your own DID Document private key
-DID_PRIVATE_KEY=xxxxxxxxxxxxxx
+# Please configure your own BN DID private key (use authKeyInfo-privateKey in did_private_keys.txt)
+DID_PRIVATE_KEY=
 
 # Please modify the following contents
 DID_PROXY_MODE=1
@@ -128,10 +128,20 @@ sudo rm -rf redis/data
 
 <br/>
 
-*Step 3: Start the Business Node*
+*Step 3: Create DID document/private key for this BN and then start the Business Node*
+```
+cd BN-Sandbox-selfservice-public/docker-compose
+
+java -jar udpn-did-sdk-1.0.0.jar signature
+
+# Get the authKeyInfo-privateKey from the did_private_keys.txt file
+authKey=$(grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}')
+
+# Append the authKey to the DID_PRIVATE_KEY line in the .env file
+sed -i "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env
 
 sudo docker-compose down; sudo docker-compose up -d
-
+```
 Note: Due to the addition of health detection and the control of sequential startup, the overall startup speed is slow. Please be patient.
 
 <br/>
