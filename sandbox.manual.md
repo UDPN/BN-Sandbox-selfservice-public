@@ -5,28 +5,7 @@
 Generate a DID Document
 ==========================
 
-Log in to the sandbox system
-----------------------------
-
-Open the Sandbox UI (<http://localhost/>) and log in to the Sandbox with the following credentials：
-
-**Username: admin**
-
-Password: Abcd1234
-
-Download the UDPN DID Java Archive
--------------------------------
-
-Click on the “Download” to download the “udpn-did-sdk-1.0.0.jar” file, as shown below:
-
-<img src="./media/image1.png" style="width:5.76667in;height:2.67292in" />
-
-Generate the DID Document
---------------------------
-
-Open the Command Line Interface and cd into the directory where you saved the Java Archive downloaded.
-Next, execute the following command to generate "private key" "public key" and "signature": <br/> "java -jar udpn-did-SDK-&lt;version&gt;.jar signature"
-
+In [README](README.md) step 3, you have already created BN DID document and private key in BN-Sandbox-selfservice-public/docker-compose directory, please use them in the below registration.
 
 <img src="./media/image2.png" style="width:5.76389in;height:2.17639in" />
 
