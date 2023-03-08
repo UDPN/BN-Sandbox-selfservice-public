@@ -42,10 +42,7 @@ of your end user:
 
 <img src="./media/api_image1.png" alt="BN API flow.drawio(1)" style="width:5.44931in;height:9.69097in" />
 
-Please find below the core APIs used by the IT system operators to
-connect to business nodes. Additional details on the API can be found in
-the Swagger description provided above. All URLs come from setting up
-the BN locally via [<span class="underline">Setup a Business Node(BN)
+Below, you can find the primary APIs utilized by IT system operators to establish a connection with business nodes. You can refer to the Swagger description mentioned above to obtain more information about these APIs. These URLs are associated with the BN's local setup, which can be accessed via [<span class="underline">Setup a Business Node(BN)
 with
 docker-compose</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public).
 
