@@ -120,6 +120,7 @@ services:
         - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
         - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
         - is.online=${IS_ONLINE}
+        - did.private.key=${DID_PRIVATE_KEY}
 
         - ENV_VN_GATEWAY=${VN_GATEWAY}
         - ENV_VN_CODE=${VN_CODE}
@@ -276,6 +277,7 @@ services:
         - besu.didContAddress=${BESU_DID_CONTADDRESS}
         - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
         - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
+        - did.private.key=${DID_PRIVATE_KEY}
     #command: /bin/bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /data/bn-processcore-0.0.1-SNAPSHOT.jar"
     ports:
         - ${BN_PROCESS_PORT}:8080
