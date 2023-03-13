@@ -120,6 +120,7 @@ services:
         - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
         - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
         - is.online=${IS_ONLINE}
+        - did.private.key=${DID_PRIVATE_KEY}
 
         - ENV_VN_GATEWAY=${VN_GATEWAY}
         - ENV_VN_CODE=${VN_CODE}
