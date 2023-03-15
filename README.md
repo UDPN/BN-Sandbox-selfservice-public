@@ -166,6 +166,7 @@ is any conflict, please modify the .env file.
 If you are going to develop your application and call BN API endpoint, please follow this [BN_API_User_Tutorial](BN_API_User_Tutorial.md)
 
 <br>
+
 **Upgrade (optional)**
 
 1.  Update the latest repo by run "git pull" in BN-Sandbox-selfservice-public/docker-compose
