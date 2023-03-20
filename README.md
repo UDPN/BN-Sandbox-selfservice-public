@@ -102,8 +102,7 @@ sudo docker-compose down
 
 **How to register your business node with a Validator Node?**
 
-Now that your Business Node instance has started successfully, please
-follow the user guide to register with a Validator Node via [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md) - Please note that the current configuration is using UDPN Sandbox Production (not staging)
+After your Business Node instance has been launched successfully, you should refer to the user guide to complete the registration process with a Validator Node through the [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md). Keep in mind that the default setup employs UDPN Sandbox Production, not staging.
 
 <br/>
 
@@ -139,7 +138,10 @@ If you are going to develop your application and call BN API endpoint, please fo
 
 <br/>
 
-**.env Advanced Configuration**
+Advanced Configuration
+============================
+
+**env Advanced Configuration**
 
 <table>
 <tbody>
