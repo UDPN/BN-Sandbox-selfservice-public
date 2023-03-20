@@ -1,0 +1,10 @@
+
+FROM udpnnetwork/web_sandbox:latest
+
+COPY sandbox.template /etc/nginx/conf.d/sandbox.template
+RUN envsubst '${ENV_VN_GATEWAY}' </etc/nginx/conf.d/sandbox.template> /etc/nginx/conf.d/sandbox.conf
+RUN cat /etc/nginx/conf.d/sandbox.conf
+#COPY --from=build bn-server/bn-init/target/*.jar /app.jar
+# CMD ./run.sh
+#EXPOSE 8080
+#ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]

@@ -70,64 +70,26 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 
 <br/>
 
-*Step 2: (Optional) Production and quasi production configuration (in file BN-Sandbox-selfservice-public/docker-compose/.env)
+*Step 2: (Option) connect to Sandbox staging environment 
 
-
-**Below is partial content in file BN-Sandbox-selfservice-public/docker-compose/.env for your reference only, please comment/uncomment the correspondig part in in .env file directly instead of copy/paste below content.**
-
-```
-Note: please don't copy/paste below content directly
-
-The default is sandbox production configuration
-#################################
-#------sandbox config 
-#********************************
-VN_GATEWAY=https://vngateway.sandbox.udpn.io:443
-VN_CODE=VN0000001
-# Please modify the following contents
-DID_PROXY_MODE=1
-DID_PROXY_URL=https://{ip}:{port}/v1/udpn/did/manage
-BESU_NODE_URL=https://vngateway.sandbox.udpn.io:443/besu
-BESU_NODE_PRIVATEKEY=81558146110441236696062019193516569978983436992581571730538671876174331431837
-BESU_DID_CONTADDRESS=0x33c8d39fabb6b303337243c1486ba808582466b3
-BESU_CPT_CONTADDRESS=0xfebf6499629be81cc6474a5ef7215a3d0231023c
-BESU_AUTHISSUERADDRESS=0xdaba54526a67822da25f905acd3e51ddf968808d
-
-If you need to connect to our quasi production environment, please uncomment the following configuration 
-in file BN-Sandbox-selfservice-public/docker-compose/.env.
-
-Note: please don't copy/paste below content directly
-
-# #################################
-# #------staging config
-# #********************************
-# VN_GATEWAY=http://16.163.247.242:30081
-# VN_CODE=UDPN000111
-# # Please modify the following contents
-# DID_PROXY_MODE=1
-# DID_PROXY_URL=http://{ip}:{port}/v1/udpn/did/manage
-# BESU_NODE_URL=http://16.163.247.242:30081/besu
-# BESU_NODE_PRIVATEKEY=43058870442585489105924017812119093828143936320321072321140103784621064736581
-# BESU_DID_CONTADDRESS=0x1401f49199a4104d426a212b7d912c6b7635b0c6
-# BESU_CPT_CONTADDRESS=0x2996130df7e249c843c944737f5ceacad646975e
-# BESU_AUTHISSUERADDRESS=0xcbf2967e676cfc44ef7b1476f2040a93d5c16dbb
-
-
-
-Note: The mysql/redis data need to be cleared when switching environments
-sudo rm -rf mysql/data
-sudo rm -rf redis/data
-
-
-
-```
+If you want to use BN to connect to Sandbox staging instead of Sandbox production, please use BN-Sandbox-selfservice-public/docker-compose-staging directory.
 
 <br/>
 
-*Step 3: Start the Business Node*
+*Step 3: Create DID document/private key for this BN and then start the Business Node*
+```
+cd BN-Sandbox-selfservice-public/docker-compose
+
+java -jar udpn-did-sdk-1.0.0.jar signature
+
+# Get the authKeyInfo-privateKey from the did_private_keys.txt file
+authKey=$(grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}')
+
+# Append the authKey to the DID_PRIVATE_KEY line in the .env file
+sed -i "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env
 
 sudo docker-compose down; sudo docker-compose up -d
-
+```
 Note: Due to the addition of health detection and the control of sequential startup, the overall startup speed is slow. Please be patient.
 
 <br/>
