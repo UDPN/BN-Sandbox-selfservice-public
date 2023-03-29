@@ -70,13 +70,7 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 
 <br/>
 
-*Step 2: (Option) connect to Sandbox staging environment 
-
-If you want to use BN to connect to Sandbox staging instead of Sandbox production, please use BN-Sandbox-selfservice-public/docker-compose-staging directory.
-
-<br/>
-
-*Step 3: Create DID document/private key for this BN and then start the Business Node*
+*Step 2: Create DID document/private key for this BN and then start the Business Node*
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
 
@@ -102,7 +96,7 @@ sudo docker-compose down
 
 **How to register your business node with a Validator Node?**
 
-After your Business Node instance has been launched successfully, you should refer to the user guide to complete the registration process with a Validator Node through the [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md). Keep in mind that the default setup employs UDPN Sandbox Production, not staging.
+After your Business Node instance has been launched successfully, you should refer to the user guide to complete the registration process with a Validator Node through the [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md). 
 
 <br/>
 
