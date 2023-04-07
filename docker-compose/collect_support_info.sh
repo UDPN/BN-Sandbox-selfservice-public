@@ -49,7 +49,12 @@ docker-compose version > "${TEMP_DIR}/docker_compose_version.txt" 2> "${TEMP_DIR
 
 # Get logs for each container
 for container in $(docker-compose config --services); do
-    docker logs "${container}" &> "${TEMP_DIR}/${container}_logs.txt" 
+    docker ps > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        docker logs "${container}" &> "${TEMP_DIR}/${container}_logs.txt" 
+    else
+        sudo docker logs "${container}" &> "${TEMP_DIR}/${container}_logs.txt" 
+    fi
 done
 
 # Zip temp directory
