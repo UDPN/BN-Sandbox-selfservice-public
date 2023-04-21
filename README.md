@@ -98,7 +98,9 @@ sudo docker-compose down
 
 **How to register your business node with a Validator Node?**
 
-After your Business Node instance has been launched successfully, you should refer to the user guide to complete the registration process with a Validator Node through the [Business Node Self-Onboarding Manual for the UDPN Sandbox](sandbox.manual.md). 
+After your Business Node instance has been launched successfully, you should refer to the user guide to complete the registration process with a Validator Node through BN [<span
+class="underline">Enterprise version</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public/blob/main/document/BN%20Back-end%20Management%20System%20Operation%20Manual%20-%20Enterprise.pdf) Manual or a [<span
+class="underline">Standard version</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public/blob/main/document/BN%20Back-end%20Management%20System%20Operation%20Manual%20-%20Standard.pdf) Manual.
 
 <br/>
 
