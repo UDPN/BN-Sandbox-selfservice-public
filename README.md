@@ -74,6 +74,8 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
 
+cat udpn-did-sdk-1.0.0.jar.part{0..4} > udpn-did-sdk-1.0.0.jar && shasum -c udpn-did-sdk-1.0.0.jar.shasum && rm udpn-did-sdk-1.0.0.jar.part*
+
 java -jar udpn-did-sdk-1.0.0.jar signature
 
 # Get the authKeyInfo-privateKey from the did_private_keys.txt file
