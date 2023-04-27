@@ -122,7 +122,8 @@ is any conflict, please modify the .env file.
 
 **BN API tutorial**
 
-If you are going to develop your application and call BN API endpoint, please follow this [BN_API_User_Tutorial](BN_API_User_Tutorial.md)
+If you are going to develop your UDPN core transfer/swap application and call BN transfer/swap API endpoint, please follow this [BN_API_User_Tutorial](BN_API_User_Tutorial.md)
+If you are going to develop your UDPN application with Smart Contract Deployment/call .etc, please follow this [document/BN API User Guide.pdf](document/BN%20API%20User%20Guide.pdf) and here is an sample test java file for your reference [document/BNEntWeb3jTest.java](document/BNEntWeb3jTest.java)
 
 <br>
 
