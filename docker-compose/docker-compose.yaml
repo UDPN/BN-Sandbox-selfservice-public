@@ -163,8 +163,8 @@ services:
         - logging.logpath=${LOG_SAVE_DIR}
         - logging.level.root=info
         - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-       - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
-       - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}"
+        - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
+        - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}"
     #command: /bin/bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
     ports:
         - ${BN_GATEWAY_PORT}:8080
@@ -203,15 +203,15 @@ services:
         - mysql.slave.username=${MYSQL_USER}
         - mysql.slave.password=${MYSQL_PWD}
         - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-       - event.server.start=${EVENT_SERVER_START}
-       - receipt.task.cron=${RECEIPT_TASK_CRON}
-       - eventTask.enabled=${EVENTTASK_ENABLED}
-       - task.event.filter.manage=${TASK_EVENT_FILTER_MANAGE}
-       - did.private.key=${DID_PRIVATE_KEY}
-       - spring.redis.host=${REDIS_HOST}
-       - spring.redis.port=${REDIS_PORT}
-       - spring.redis.password=${REDIS_PASSWORD}
-       - spring.redis.database=${REDIS_DATABASE}
+        - event.server.start=${EVENT_SERVER_START}
+        - receipt.task.cron=${RECEIPT_TASK_CRON}
+        - eventTask.enabled=${EVENTTASK_ENABLED}
+        - task.event.filter.manage=${TASK_EVENT_FILTER_MANAGE}
+        - did.private.key=${DID_PRIVATE_KEY}
+        - spring.redis.host=${REDIS_HOST}
+        - spring.redis.port=${REDIS_PORT}
+        - spring.redis.password=${REDIS_PASSWORD}
+        - spring.redis.database=${REDIS_DATABASE}
     #command: /bin/bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /data/bn-event-0.0.1-SNAPSHOT.jar"
     ports:
         - ${BN_EVENT_PORT}:8080
@@ -289,12 +289,12 @@ services:
         - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
         - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
         - did.private.key=${DID_PRIVATE_KEY}
-       - sol.file.path=${SOL_FILE_PATH}
-       - task.Synchronous.audit.status=${TASK_SYNCHRONOUS_AUDIT_STATUS}
-       - auditstatustask.enabled=${AUDITSTATUSTASK_ENABLE}
-       - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
-       - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
-       - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
+        - sol.file.path=${SOL_FILE_PATH}
+        - task.Synchronous.audit.status=${TASK_SYNCHRONOUS_AUDIT_STATUS}
+        - auditstatustask.enabled=${AUDITSTATUSTASK_ENABLE}
+        - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
+        - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
+        - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
     #command: /bin/bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /data/bn-processcore-0.0.1-SNAPSHOT.jar"
     ports:
         - ${BN_PROCESS_PORT}:8080
