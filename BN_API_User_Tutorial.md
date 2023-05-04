@@ -151,8 +151,7 @@ subsequent sections (Sections 6/7).
 
 [<span
 class="underline">http://localhost/v1/udpn/processing/transfer/manage/save</span>](http://localhost/v1/udpn/processing/transfer/manage/save)
-
-Note: Please use "no tnSecurityMsg" for input parameter "tnSecurityMsg".
+(Note: Please use "no tnSecurityMsg" for input parameter "tnSecurityMsg".)
 
 SWAP
 -----
@@ -182,8 +181,7 @@ subsequent sections .
 
 [<span
 class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/save</span>](http://localhost/v1/udpn/processing/transfer/manage/save)
-
-Note: Please use "no tnSecurityMsg" for input parameter "tnSecurityMsg".
+(Note: Please use "no tnSecurityMsg" for input parameter "tnSecurityMsg".)
 
 Retrieve the Transfer/SWAP list
 -------------------------------
