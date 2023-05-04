@@ -66,10 +66,7 @@ docker-compose</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public).
 Login
 -----
 
-The IT system uses this API to log in to their business node. The
-default username/password could be found at [<span
-class="underline">this
-page</span>](https://github.com/UDPN/BN-Sandbox-selfservice-public/blob/main/sandbox.manual.md)
+The IT system uses this API to log in to their business node. The username/password should be set by yourself during BN onboarding. 
 if you are using <span class="underline">[Setup a Business Node(BN) with
 docker-compose](https://github.com/UDPN/BN-Sandbox-selfservice-public).</span>
 More APIs could be found via swagger.
@@ -145,21 +142,6 @@ the UDPN.
 [<span
 class="underline">http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select</span>](http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select)
 
-#### Permit
-
-Once a transaction node is chosen to process the transfer, use this API
-to collect the relevalt public chain package details.
-
-As a temporary fix, we pass the end-user private key to the transaction
-node so that it signs the transaction on behalf of the end user.
-
-We will provide an SDK or manual in production so the IT system can sign
-the transaction locally. For obvious security reasons, the private key
-cannot be shared and must be safeguarded locally.
-
-[<span
-class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select</span>](http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select)
-
 #### Send a Transfer transaction request
 
 Send a transfer transaction request
@@ -169,6 +151,7 @@ subsequent sections (Sections 6/7).
 
 [<span
 class="underline">http://localhost/v1/udpn/processing/transfer/manage/save</span>](http://localhost/v1/udpn/processing/transfer/manage/save)
+Note: Please use "no tnSecurityMsg" for input parameter "tnSecurityMsg".
 
 SWAP
 -----
@@ -189,21 +172,6 @@ the UDPN.
 [<span
 class="underline">http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select</span>](http://localhost/v1/udpn/processing/common/manage/active/currency/platform/select)
 
-#### Permit
-
-Once a transaction node is chosen to process the SWAP, use this API to
-collect the relevant public chain package details.
-
-As a temporary fix, we pass the end-user private key to the transaction
-node so that it signs the transaction on behalf of the end user.
-
-We will provide an SDK or manual in production so the IT system can sign
-the transaction locally. For obvious security reasons, the private key
-cannot be shared and must be safeguarded locally.
-
-[<span
-class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select</span>](http://localhost/v1/udpn/processing/digital/currency/swap/manage/permit/select)
-
 #### Send Swap transaction
 
 Send SWAP transaction.
@@ -213,6 +181,7 @@ subsequent sections .
 
 [<span
 class="underline">http://localhost/v1/udpn/processing/digital/currency/swap/manage/save</span>](http://localhost/v1/udpn/processing/transfer/manage/save)
+Note: Please use "no tnSecurityMsg" for input parameter "tnSecurityMsg".
 
 Retrieve the Transfer/SWAP list
 -------------------------------
