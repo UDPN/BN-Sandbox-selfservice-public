@@ -84,7 +84,7 @@ authKey=$(grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
 # Append the authKey to the DID_PRIVATE_KEY line in the .env file
 sed -i "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env
 
-sudo docker-compose down; sudo docker-compose up -d
+sudo docker-compose down; sudo docker-compose pull; sudo docker-compose up -d
 ```
 Note: Due to the addition of health detection and the control of sequential startup, the overall startup speed is slow. Please be patient.
 
