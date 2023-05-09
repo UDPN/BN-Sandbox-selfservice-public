@@ -43,6 +43,9 @@ echo "vm_stat" >> "${RESULT_FILE}"
 vm_stat >> "${RESULT_FILE}" 2>&1
 echo "" >> "${RESULT_FILE}"
 
+# check the the current git log so as to make sure it is up-to-date
+git log &> "${TEMP_DIR}/git_log.txt"
+
 # Get Docker and Docker-compose version
 docker version > "${TEMP_DIR}/docker_version.txt" 2> "${TEMP_DIR}/docker_version_err.txt"
 docker-compose version > "${TEMP_DIR}/docker_compose_version.txt" 2> "${TEMP_DIR}/docker_compose_version_err.txt"
@@ -52,8 +55,10 @@ for container in $(docker-compose config --services); do
     docker ps > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         docker logs "${container}" &> "${TEMP_DIR}/${container}_logs.txt" 
+        docker images |grep udpnnetwork &> "${TEMP_DIR}/docker-images.txt" 
     else
         sudo docker logs "${container}" &> "${TEMP_DIR}/${container}_logs.txt" 
+        sudo docker images "${container}"|grep udpnnetwork &> "${TEMP_DIR}/docker-images.txt" 
     fi
 done
 
