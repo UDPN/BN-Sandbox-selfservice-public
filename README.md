@@ -90,6 +90,30 @@ Note: Due to the addition of health detection and the control of sequential star
 
 <br/>
 
+**Support Needed**
+
+If you have any problems installing BN, please check the following:
+
+1. **System prerequisites**: Make sure your system meets the requirements listed at the beginning of the README.
+
+2. **Memory**: Close any other programs that are running to free up memory for the BN containers.
+
+3. **Commands**: Make sure you have run all of the commands above and that they were all successful.
+
+4. **Repository**: Make sure you have the latest version of the repository. If you don't, please try to reinstall BN by:
+
+5. Closing any running containers with "docker-compose down" or "sudo docker-compose down".
+
+6. Cloning the repository again and following the commands above one by one.
+
+If you are still having problems, please collect diagnostic information as below and send it to the UDPN support team.
+
+Info to be collected: (system info including OS info, mem, disk usage; git logs of current repo; docker/docker-compose versions; docker container logs), please double check before send it out.
+```
+cd BN-Sandbox-selfservice-public/docker-compose
+bash collect_support_info.sh
+```
+
 **How to stop the Business Node?**
 
 sudo docker-compose down
