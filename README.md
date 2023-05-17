@@ -82,7 +82,7 @@ java -jar udpn-did-sdk-1.0.0.jar signature
 authKey=$(grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}')
 
 # Append the authKey to the DID_PRIVATE_KEY line in the .env file
-sed -i "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env
+sed "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env > .env.tmp && mv .env.tmp .env
 
 sudo docker-compose down; sudo docker-compose pull; sudo docker-compose up -d
 ```
