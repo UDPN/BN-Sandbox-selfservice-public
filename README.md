@@ -36,15 +36,23 @@ CPU/Mem/Disk : 4-core/8G/40G
 </tbody>
 </table>
 
-<br/>
+<br/><br/><br/>
+
+***Please note that all below commands are for Bash, please change accordingly if you use other shell, e.g. Zsh/ksh .etc***
+
+<br/><br/><br/>
 
 ***Tips to Install docker***
+
+#!/bin/bash
 
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
 <br/>
 
 ***Tips to Install docker-compose***
+
+#!/bin/bash
 
 sudo curl -L
 "https://get.daocloud.io/docker/compose/releases/download/1.27.3/docker-compose-$(uname
@@ -60,6 +68,7 @@ Steps to install a Business Node instance
 *Step 1: Download and clone the repo*
 
 ```
+#!/bin/bash
 #use https as below or use git@github.com:UDPN/BN-Sandbox-selfservice-public.git as alternative.
 git clone https://github.com/UDPN/BN-Sandbox-selfservice-public.git
 or
@@ -72,6 +81,7 @@ sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
 
 *Step 2: Create DID document/private key for this BN and then start the Business Node*
 ```
+#!/bin/bash
 cd BN-Sandbox-selfservice-public/docker-compose
 
 cat udpn-did-sdk-1.0.0.jar.part{0..4} > udpn-did-sdk-1.0.0.jar && shasum -c udpn-did-sdk-1.0.0.jar.shasum && rm udpn-did-sdk-1.0.0.jar.part*
@@ -110,6 +120,7 @@ If you are still having problems, please collect diagnostic information as below
 
 Info to be collected: (system info including OS info, mem, disk usage; git logs of current repo; docker/docker-compose versions; docker container logs), please double check before send it out.
 ```
+#!/bin/bash
 cd BN-Sandbox-selfservice-public/docker-compose
 bash collect_support_info.sh
 ```
