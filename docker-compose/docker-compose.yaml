@@ -26,6 +26,8 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    logging:
+      driver: "local"
 
   redis:
     image: redis:6.2.5
@@ -51,6 +53,8 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    logging:
+      driver: "local"
 
   bneureka:
     image: udpnnetwork/redeureka:latest
@@ -83,7 +87,9 @@ services:
       interval: 5s 
       timeout: 5s 
       retries: 3 
-      start_period: 600s 
+      start_period: 600s
+    logging:
+      driver: "local"
 
   bninit:
     image: udpnnetwork/bn-init:latest
@@ -147,7 +153,9 @@ services:
       interval: 5s 
       timeout: 5s 
       retries: 3 
-      start_period: 600s 
+      start_period: 600s
+    logging:
+      driver: "local"
 
   bngateway:
     image: udpnnetwork/bn-gateway:latest
@@ -181,7 +189,9 @@ services:
       interval: 5s 
       timeout: 5s 
       retries: 3 
-      start_period: 600s 
+      start_period: 600s
+    logging:
+      driver: "local"
 
 
   bn1-event:
@@ -221,6 +231,8 @@ services:
     networks:
       udpn-bn:
         ipv4_address: 172.16.137.105
+    logging:
+      driver: "local"
 
   bnpermission:
     image: udpnnetwork/bn-permission:latest
@@ -255,7 +267,9 @@ services:
       interval: 5s 
       timeout: 5s 
       retries: 3 
-      start_period: 600s 
+      start_period: 600s
+    logging:
+      driver: "local"
 
   bnprocess:
     image: udpnnetwork/bn-processcore:latest
@@ -309,7 +323,9 @@ services:
       interval: 5s 
       timeout: 5s 
       retries: 3 
-      start_period: 600s 
+      start_period: 600s
+    logging:
+      driver: "local"
 
   bn-web:
     image: udpnnetwork/bn-web:latest
@@ -328,6 +344,8 @@ services:
     networks:
       udpn-bn:
         ipv4_address: 172.16.137.108
+    logging:
+      driver: "local"
 
   web_sandbox:
     image: udpnnetwork/web_sandbox:latest
@@ -352,6 +370,8 @@ services:
     networks:
       udpn-bn:
         ipv4_address: 172.16.137.109
+    logging:
+      driver: "local"
 
 networks:
   udpn-bn:
