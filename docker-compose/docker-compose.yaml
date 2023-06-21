@@ -57,7 +57,7 @@ services:
       driver: "local"
 
   bneureka:
-    image: udpnnetwork/redeureka:latest
+    image: udpnnetwork/redeureka:staging 
     container_name: bneureka
     restart: always
     volumes: 
@@ -92,7 +92,7 @@ services:
       driver: "local"
 
   bninit:
-    image: udpnnetwork/bn-init:latest
+    image: udpnnetwork/bn-init:staging 
     container_name: bninit
     restart: always
     volumes: 
@@ -158,7 +158,7 @@ services:
       driver: "local"
 
   bngateway:
-    image: udpnnetwork/bn-gateway:latest
+    image: udpnnetwork/bn-gateway:staging 
     container_name: bngateway
     restart: always
     volumes: 
@@ -195,7 +195,7 @@ services:
 
 
   bn1-event:
-    image: udpnnetwork/bn-event:latest
+    image: udpnnetwork/bn-event:staging 
     container_name: bn1-event
     restart: always
     volumes: 
@@ -235,7 +235,7 @@ services:
       driver: "local"
 
   bnpermission:
-    image: udpnnetwork/bn-permission:latest
+    image: udpnnetwork/bn-permission:staging 
     container_name: bnpermission
     restart: always
     volumes: 
@@ -272,7 +272,7 @@ services:
       driver: "local"
 
   bnprocess:
-    image: udpnnetwork/bn-processcore:latest
+    image: udpnnetwork/bn-processcore:staging 
     container_name: bnprocess
     restart: always
     volumes: 
@@ -309,6 +309,7 @@ services:
         - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
         - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
         - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
+        - solution.center.url=${SOLUTION_CENTER_URL}
     #command: /bin/bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /data/bn-processcore-0.0.1-SNAPSHOT.jar"
     ports:
         - ${BN_PROCESS_PORT}:8080
@@ -328,7 +329,7 @@ services:
       driver: "local"
 
   bn-web:
-    image: udpnnetwork/bn-web:latest
+    image: udpnnetwork/bn-web:staging 
     container_name: bn-web
     restart: always
     ports:
@@ -348,7 +349,7 @@ services:
       driver: "local"
 
   web_sandbox:
-    image: udpnnetwork/web_sandbox:latest
+    image: udpnnetwork/web_sandbox:staging 
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
