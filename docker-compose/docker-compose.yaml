@@ -118,10 +118,6 @@ services:
       - ENV_BESU_DID_CONTADDRESS=${BESU_DID_CONTADDRESS}
       - ENV_BESU_CPT_CONTADDRESS=${BESU_CPT_CONTADDRESS}
       - ENV_BESU_AUTHISSUERADDRESS=${BESU_AUTHISSUERADDRESS}
-      - EUREKA_CONTAINER_NAME=${EUREKA_CONTAINER_NAME}
-      - BN_GATEWAY_CONTAINER_NAME=${BN_GATEWAY_CONTAINER_NAME}
-      - BN_PERMISSION_CONTAINER_NAME=${BN_PERMISSION_CONTAINER_NAME}
-      - BN_INIT_CONTAINER_NAME=${BN_INIT_CONTAINER_NAME}
     #command: 
     #  - /bin/bash
     #  - -c
@@ -155,10 +151,6 @@ services:
       - logging.logpath=${LOG_SAVE_DIR}
       - logging.level.root=info
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - EUREKA_CONTAINER_NAME=${EUREKA_CONTAINER_NAME}
-      - BN_GATEWAY_CONTAINER_NAME=${BN_GATEWAY_CONTAINER_NAME}
-      - BN_PERMISSION_CONTAINER_NAME=${BN_PERMISSION_CONTAINER_NAME}
-      - BN_INIT_CONTAINER_NAME=${BN_INIT_CONTAINER_NAME}
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
@@ -195,10 +187,6 @@ services:
       - mysql.slave.username=${MYSQL_USER}
       - mysql.slave.password=${MYSQL_PWD}
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - EUREKA_CONTAINER_NAME=${EUREKA_CONTAINER_NAME}
-      - BN_GATEWAY_CONTAINER_NAME=${BN_GATEWAY_CONTAINER_NAME}
-      - BN_PERMISSION_CONTAINER_NAME=${BN_PERMISSION_CONTAINER_NAME}
-      - BN_INIT_CONTAINER_NAME=${BN_INIT_CONTAINER_NAME}
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
@@ -226,10 +214,6 @@ services:
       - mysql.slave.username=${MYSQL_USER}
       - mysql.slave.password=${MYSQL_PWD}
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - EUREKA_CONTAINER_NAME=${EUREKA_CONTAINER_NAME}
-      - BN_GATEWAY_CONTAINER_NAME=${BN_GATEWAY_CONTAINER_NAME}
-      - BN_PERMISSION_CONTAINER_NAME=${BN_PERMISSION_CONTAINER_NAME}
-      - BN_INIT_CONTAINER_NAME=${BN_INIT_CONTAINER_NAME}
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
@@ -276,10 +260,6 @@ services:
       - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
       - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
       - did.private.key=${DID_PRIVATE_KEY}
-      - EUREKA_CONTAINER_NAME=${EUREKA_CONTAINER_NAME}
-      - BN_GATEWAY_CONTAINER_NAME=${BN_GATEWAY_CONTAINER_NAME}
-      - BN_PERMISSION_CONTAINER_NAME=${BN_PERMISSION_CONTAINER_NAME}
-      - BN_INIT_CONTAINER_NAME=${BN_INIT_CONTAINER_NAME}
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
