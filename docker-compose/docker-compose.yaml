@@ -301,7 +301,8 @@ services:
     restart: always
     environment:
       - ENV_VN_GATEWAY=${VN_GATEWAY}
-    command: /bin/sh -c "envsubst '$${ENV_VN_GATEWAY}' </etc/nginx/conf.d/default.template> /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;' "
+    #command: /bin/sh -c "envsubst '$${ENV_VN_GATEWAY}' </etc/nginx/conf.d/default.template> /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;' "
+    command: ["/bin/bash", "-c", "exec nginx -g 'daemon off;'"]
     volumes:
       - ./web_sandbox/logs:/var/log/nginx
       - ./web_sandbox/config:/etc/nginx/conf.d
