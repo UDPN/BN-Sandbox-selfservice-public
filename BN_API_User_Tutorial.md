@@ -33,7 +33,7 @@ class="underline">https://bngateway-yourDomainURL/swg/swagger-ui/index.html</spa
 3.  From a UDPN public BN instance (read-only, cannot trigger API call)
 
 [<span
-class="underline">https://bngateway-rd.sandbox.udpn.io/swg/swagger-ui/index.html</span>](https://bngateway-rd.sandbox.udpn.io/swg/swagger-ui/index.html)
+class="underline">https://rd.bngateway.udpn.io/swg/swagger-ui/index.html</span>](https://rd.bngateway.udpn.io/swg/swagger-ui/index.html)
 
 <br><br><br>
 
