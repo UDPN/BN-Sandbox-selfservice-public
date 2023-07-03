@@ -28,6 +28,9 @@ services:
       retries: 30
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   redis:
     image: redis:6.2.5
@@ -55,6 +58,9 @@ services:
       retries: 30
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   bneureka:
     image: udpnnetwork/redeureka:latest
@@ -90,6 +96,9 @@ services:
       start_period: 600s
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   bninit:
     image: udpnnetwork/bn-init:latest
@@ -156,6 +165,9 @@ services:
       start_period: 600s
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   bngateway:
     image: udpnnetwork/bn-gateway:latest
@@ -192,6 +204,9 @@ services:
       start_period: 600s
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
 
   bn1-event:
@@ -233,6 +248,9 @@ services:
         ipv4_address: 172.16.137.105
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   bnpermission:
     image: udpnnetwork/bn-permission:latest
@@ -270,6 +288,9 @@ services:
       start_period: 600s
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   bnprocess:
     image: udpnnetwork/bn-processcore:latest
@@ -326,6 +347,9 @@ services:
       start_period: 600s
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   bn-web:
     image: udpnnetwork/bn-web:latest
@@ -346,6 +370,9 @@ services:
         ipv4_address: 172.16.137.108
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   web_sandbox:
     image: udpnnetwork/web_sandbox:latest
@@ -372,6 +399,9 @@ services:
         ipv4_address: 172.16.137.109
     logging:
       driver: "local"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
 networks:
   udpn-bn:
