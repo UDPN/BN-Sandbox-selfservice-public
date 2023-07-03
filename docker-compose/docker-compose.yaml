@@ -260,6 +260,7 @@ services:
       - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
       - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
       - did.private.key=${DID_PRIVATE_KEY}
+      - solution.center.url=${SOLUTION_CENTER_URL}
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
