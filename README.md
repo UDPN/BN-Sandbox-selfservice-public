@@ -160,6 +160,10 @@ is any conflict, please modify the .env file.
 If you are going to develop your UDPN core transfer/swap application and call BN transfer/swap API endpoint, please follow this [BN_API_User_Tutorial](BN_API_User_Tutorial.md)
 If you are going to develop your UDPN application with Smart Contract Deployment/call .etc, please follow this [document/BN API User Guide.pdf](document/BN%20API%20User%20Guide.pdf) and here is an sample test java file for your reference [document/BNEntWeb3jTest.java](document/BNEntWeb3jTest.java)
 
+**BN Testcoin manual**
+
+Using the Ethereum testnet as a reference, in usual situations, it usually requires approximately 5-10 minutes to complete a transfer transaction due to the operational procedures of public blockchains. Nevertheless, on the Besu chain, employing smart contracts for executing a transfer transaction can be done in just a few seconds. To showcase the rapidity of transactions on the Besu chain, we present TestCoin from PoC#3 as an example for executing a transfer transaction. The diagram below illustrates the exact process of executing this transaction. The manul for this is at [document/TestCoin_Operation_Manual.pdf](document/TestCoin_Operation_Manual.pdf).
+
 <br>
 
 **Upgrade (optional)**
