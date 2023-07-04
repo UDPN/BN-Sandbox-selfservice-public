@@ -1,0 +1,13 @@
+# Please modify the following contents
+vn:
+  inits:
+    - vnCode: VN0000001
+      vnNodeName: VN0000001 name
+      vnRegion: China
+      vnInformation: This is perfect VN-NODE-China.
+      vnUrl: http://vngateway.udpn.io:80
+    - vnCode: VN0000001
+      vnNodeName: VN0000001 name
+      vnRegion: China
+      vnInformation: This is perfect VN-NODE-China.
+      vnUrl: http://vngateway.udpn.io:80
