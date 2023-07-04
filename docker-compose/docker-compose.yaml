@@ -20,7 +20,7 @@ services:
       - ${MYSQL_MASTER_PORT}:3306
     networks:
       - udpn-bn
-    healthcheck:
+    healthcheck:logs:releaseV1.1.3
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       interval: 1s
       timeout: 3s
@@ -52,7 +52,7 @@ services:
       retries: 30
 
   bneureka: 
-    image: udpnnetwork/redeureka:latest
+    image: udpnnetwork/redeureka:releaseV1.1.3
     container_name: bneureka
     restart: always
     environment:
@@ -82,7 +82,7 @@ services:
       start_period: 600s 
 
   bninit:
-    image: udpnnetwork/bn-init:latest
+    image: udpnnetwork/bn-init:releaseV1.1.3
     container_name: bninit
     restart: always
     environment:
@@ -142,7 +142,7 @@ services:
       start_period: 600s 
 
   bngateway:
-    image: udpnnetwork/bn-gateway:latest
+    image: udpnnetwork/bn-gateway:releaseV1.1.3
     container_name: bngateway
     restart: always
     environment:
@@ -172,7 +172,7 @@ services:
 
 
   bn1-event:
-    image: udpnnetwork/bn-event:latest
+    image: udpnnetwork/bn-event:releaseV1.1.3
     container_name: bn1-event
     restart: always
     environment:
@@ -199,7 +199,7 @@ services:
       - udpn-bn
 
   bnpermission:
-    image: udpnnetwork/bn-permission:latest
+    image: udpnnetwork/bn-permission:releaseV1.1.3
     container_name: bnpermission
     restart: always
     environment:
@@ -232,7 +232,7 @@ services:
       start_period: 600s 
 
   bnprocess:
-    image: udpnnetwork/bn-processcore:latest
+    image: udpnnetwork/bn-processcore:releaseV1.1.3
     container_name: bnprocess
     restart: always
     environment:
@@ -279,7 +279,7 @@ services:
       start_period: 600s 
 
   bn-web:
-    image: udpnnetwork/bn-web:latest
+    image: udpnnetwork/bn-web:releaseV1.1.3
     container_name: bn-web
     restart: always
     volumes:
@@ -294,7 +294,7 @@ services:
       - udpn-bn
 
   web_sandbox:
-    image: udpnnetwork/web_sandbox:latest
+    image: udpnnetwork/web_sandbox:releaseV1.1.3
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
