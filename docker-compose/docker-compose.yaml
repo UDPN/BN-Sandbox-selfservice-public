@@ -51,8 +51,8 @@ services:
       timeout: 3s
       retries: 30
 
-  bneureka:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bneureka-releaseV1.1.3
+  bneureka: udpnnetwork/redeureka:latest
+    image:
     container_name: bneureka
     restart: always
     environment:
@@ -82,7 +82,7 @@ services:
       start_period: 600s 
 
   bninit:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bninit-releaseV1.1.3
+    image: udpnnetwork/bn-init:latest
     container_name: bninit
     restart: always
     environment:
@@ -142,7 +142,7 @@ services:
       start_period: 600s 
 
   bngateway:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bngateway-releaseV1.1.3
+    image: udpnnetwork/bn-gateway:latest
     container_name: bngateway
     restart: always
     environment:
@@ -172,7 +172,7 @@ services:
 
 
   bn1-event:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bnevent-releaseV1.1.3
+    image: udpnnetwork/bn-event:latest
     container_name: bn1-event
     restart: always
     environment:
@@ -199,7 +199,7 @@ services:
       - udpn-bn
 
   bnpermission:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bnpermission-releaseV1.1.3
+    image: udpnnetwork/bn-permission:latest
     container_name: bnpermission
     restart: always
     environment:
@@ -232,7 +232,7 @@ services:
       start_period: 600s 
 
   bnprocess:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bnprocess-releaseV1.1.3
+    image: udpnnetwork/bn-processcore:latest
     container_name: bnprocess
     restart: always
     environment:
@@ -279,7 +279,7 @@ services:
       start_period: 600s 
 
   bn-web:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-bnweb-releaseV1.1.3
+    image: udpnnetwork/bn-web:latest
     container_name: bn-web
     restart: always
     volumes:
@@ -294,7 +294,7 @@ services:
       - udpn-bn
 
   web_sandbox:
-    image: 759904182533.dkr.ecr.ap-southeast-1.amazonaws.com/udpn_pre_production:udpn-bn-boxweb-releaseV1.1.2
+    image: udpnnetwork/web_sandbox:latest
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
