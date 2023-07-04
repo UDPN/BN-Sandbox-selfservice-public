@@ -51,8 +51,8 @@ services:
       timeout: 3s
       retries: 30
 
-  bneureka: udpnnetwork/redeureka:latest
-    image:
+  bneureka: 
+    image: udpnnetwork/redeureka:latest
     container_name: bneureka
     restart: always
     environment:
