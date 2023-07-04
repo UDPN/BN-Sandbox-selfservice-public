@@ -20,7 +20,7 @@ services:
       - ${MYSQL_MASTER_PORT}:3306
     networks:
       - udpn-bn
-    healthcheck:
+    healthcheck:logs:releaseV1.1.3
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       interval: 1s
       timeout: 3s
@@ -70,7 +70,11 @@ services:
 =======
 
   bneureka: 
+<<<<<<< HEAD
     image: udpnnetwork/redeureka:latest
+>>>>>>> origin/develop
+=======
+    image: udpnnetwork/redeureka:releaseV1.1.3
 >>>>>>> origin/develop
     container_name: bneureka
     restart: always
@@ -110,7 +114,11 @@ services:
 >>>>>>> origin/develop
 
   bninit:
+<<<<<<< HEAD
     image: udpnnetwork/bn-init:releaseV1.1.2
+=======
+    image: udpnnetwork/bn-init:releaseV1.1.3
+>>>>>>> origin/develop
     container_name: bninit
     restart: always
     environment:
@@ -179,7 +187,11 @@ services:
 >>>>>>> origin/develop
 
   bngateway:
+<<<<<<< HEAD
     image: udpnnetwork/bn-gateway:releaseV1.1.2
+=======
+    image: udpnnetwork/bn-gateway:releaseV1.1.3
+>>>>>>> origin/develop
     container_name: bngateway
     restart: always
     environment:
@@ -218,7 +230,11 @@ services:
 
 
   bn1-event:
+<<<<<<< HEAD
     image: udpnnetwork/bn-event:releaseV1.1.2
+=======
+    image: udpnnetwork/bn-event:releaseV1.1.3
+>>>>>>> origin/develop
     container_name: bn1-event
     restart: always
     environment:
@@ -255,7 +271,11 @@ services:
 >>>>>>> origin/develop
 
   bnpermission:
+<<<<<<< HEAD
     image: udpnnetwork/bn-permission:releaseV1.1.2
+=======
+    image: udpnnetwork/bn-permission:releaseV1.1.3
+>>>>>>> origin/develop
     container_name: bnpermission
     restart: always
     environment:
@@ -297,7 +317,11 @@ services:
 >>>>>>> origin/develop
 
   bnprocess:
+<<<<<<< HEAD
     image: udpnnetwork/bn-processcore:releaseV1.1.2
+=======
+    image: udpnnetwork/bn-processcore:releaseV1.1.3
+>>>>>>> origin/develop
     container_name: bnprocess
     restart: always
     environment:
@@ -353,7 +377,11 @@ services:
 >>>>>>> origin/develop
 
   bn-web:
+<<<<<<< HEAD
     image: udpnnetwork/bn-web:releaseV1.1.2
+=======
+    image: udpnnetwork/bn-web:releaseV1.1.3
+>>>>>>> origin/develop
     container_name: bn-web
     restart: always
     volumes:
@@ -378,7 +406,11 @@ services:
 >>>>>>> origin/develop
 
   web_sandbox:
+<<<<<<< HEAD
     image: udpnnetwork/web_sandbox:releaseV1.1.2
+=======
+    image: udpnnetwork/web_sandbox:releaseV1.1.3
+>>>>>>> origin/develop
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
