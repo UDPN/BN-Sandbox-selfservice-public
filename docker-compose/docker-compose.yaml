@@ -63,7 +63,7 @@ services:
         max-file: "5"
 
   bneureka:
-    image: udpnnetwork/redeureka:latest
+    image: udpnnetwork/redeureka:releaseV1.1.2
     container_name: bneureka
     restart: always
     volumes: 
@@ -101,7 +101,7 @@ services:
         max-file: "5"
 
   bninit:
-    image: udpnnetwork/bn-init:latest
+    image: udpnnetwork/bn-init:releaseV1.1.2
     container_name: bninit
     restart: always
     volumes: 
@@ -170,7 +170,7 @@ services:
         max-file: "5"
 
   bngateway:
-    image: udpnnetwork/bn-gateway:latest
+    image: udpnnetwork/bn-gateway:releaseV1.1.2
     container_name: bngateway
     restart: always
     volumes: 
@@ -210,7 +210,7 @@ services:
 
 
   bn1-event:
-    image: udpnnetwork/bn-event:latest
+    image: udpnnetwork/bn-event:releaseV1.1.2
     container_name: bn1-event
     restart: always
     volumes: 
@@ -253,7 +253,7 @@ services:
         max-file: "5"
 
   bnpermission:
-    image: udpnnetwork/bn-permission:latest
+    image: udpnnetwork/bn-permission:releaseV1.1.2
     container_name: bnpermission
     restart: always
     volumes: 
@@ -293,7 +293,7 @@ services:
         max-file: "5"
 
   bnprocess:
-    image: udpnnetwork/bn-processcore:latest
+    image: udpnnetwork/bn-processcore:releaseV1.1.2
     container_name: bnprocess
     restart: always
     volumes: 
@@ -352,7 +352,7 @@ services:
         max-file: "5"
 
   bn-web:
-    image: udpnnetwork/bn-web:latest
+    image: udpnnetwork/bn-web:releaseV1.1.2
     container_name: bn-web
     restart: always
     ports:
@@ -375,7 +375,7 @@ services:
         max-file: "5"
 
   web_sandbox:
-    image: udpnnetwork/web_sandbox:latest
+    image: udpnnetwork/web_sandbox:releaseV1.1.2
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
