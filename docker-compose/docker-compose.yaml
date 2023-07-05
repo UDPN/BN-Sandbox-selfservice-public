@@ -187,6 +187,15 @@ services:
       - mysql.slave.username=${MYSQL_USER}
       - mysql.slave.password=${MYSQL_PWD}
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
+      - event.server.start=${EVENT_SERVER_START}
+      - receipt.task.cron=${RECEIPT_TASK_CRON}
+      - eventTask.enabled=${EVENTTASK_ENABLED}
+      - task.event.filter.manage=${TASK_EVENT_FILTER_MANAGE}
+      - spring.redis.host=${REDIS_HOST}
+      - spring.redis.port=${REDIS_PORT}
+      - spring.redis.password=${REDIS_PASSWORD}
+      - spring.redis.database=${REDIS_DATABASE}
+
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
