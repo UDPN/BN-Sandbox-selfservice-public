@@ -260,6 +260,12 @@ services:
       - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
       - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
       - did.private.key=${DID_PRIVATE_KEY}
+      - sol.file.path=${SOL_FILE_PATH}
+      - task.Synchronous.audit.status=${TASK_SYNCHRONOUS_AUDIT_STATUS}
+      - auditstatustask.enabled=${AUDITSTATUSTASK_ENABLE}
+      - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
+      - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
+      - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
       - solution.center.url=${SOLUTION_CENTER_URL}
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
