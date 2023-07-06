@@ -63,6 +63,8 @@ services:
       - spring.security.user.name=${EUREKA_USER}
       - spring.security.user.password=${EUREKA_PWD}
       - eureka.client.service-url.defaultZone=http://bneureka:${EUREKA_PORT}/eureka
+      - feign.client.config.default.connect-timeout=30000
+      - feign.client.config.default.read-timeout=30000
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
@@ -118,6 +120,8 @@ services:
       - ENV_BESU_DID_CONTADDRESS=${BESU_DID_CONTADDRESS}
       - ENV_BESU_CPT_CONTADDRESS=${BESU_CPT_CONTADDRESS}
       - ENV_BESU_AUTHISSUERADDRESS=${BESU_AUTHISSUERADDRESS}
+      - feign.client.config.default.connect-timeout=30000
+      - feign.client.config.default.read-timeout=30000
     #command: 
     #  - /bin/bash
     #  - -c
@@ -151,6 +155,8 @@ services:
       - logging.logpath=${LOG_SAVE_DIR}
       - logging.level.root=info
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
+      - feign.client.config.default.connect-timeout=30000
+      - feign.client.config.default.read-timeout=30000
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
@@ -195,6 +201,8 @@ services:
       - spring.redis.port=${REDIS_PORT}
       - spring.redis.password=${REDIS_PASSWORD}
       - spring.redis.database=${REDIS_DATABASE}
+      - feign.client.config.default.connect-timeout=30000
+      - feign.client.config.default.read-timeout=30000
 
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
@@ -223,6 +231,8 @@ services:
       - mysql.slave.username=${MYSQL_USER}
       - mysql.slave.password=${MYSQL_PWD}
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
+      - feign.client.config.default.connect-timeout=30000
+      - feign.client.config.default.read-timeout=30000
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
@@ -276,6 +286,8 @@ services:
       - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
       - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
       - solution.center.url=${SOLUTION_CENTER_URL}
+      - feign.client.config.default.connect-timeout=30000
+      - feign.client.config.default.read-timeout=30000
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}:/data
