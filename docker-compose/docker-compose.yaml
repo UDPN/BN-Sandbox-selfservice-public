@@ -197,6 +197,7 @@ services:
       - receipt.task.cron=${RECEIPT_TASK_CRON}
       - eventTask.enabled=${EVENTTASK_ENABLED}
       - task.event.filter.manage=${TASK_EVENT_FILTER_MANAGE}
+      - did.private.key=${DID_PRIVATE_KEY}
       - spring.redis.host=${REDIS_HOST}
       - spring.redis.port=${REDIS_PORT}
       - spring.redis.password=${REDIS_PASSWORD}
