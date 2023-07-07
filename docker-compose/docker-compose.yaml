@@ -30,7 +30,6 @@ services:
     image: redis:6.2.5
     container_name: redis
     restart: always
-    privileged: true
     environment:
       TZ: Asia/Shanghai
       LANG: en_US.UTF-8
