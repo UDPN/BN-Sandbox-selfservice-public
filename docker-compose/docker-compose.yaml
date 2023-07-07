@@ -201,6 +201,7 @@ services:
       - spring.redis.port=${REDIS_PORT}
       - spring.redis.password=${REDIS_PASSWORD}
       - spring.redis.database=${REDIS_DATABASE}
+      - did.private.key=${DID_PRIVATE_KEY}
       - feign.client.config.default.connect-timeout=30000
       - feign.client.config.default.read-timeout=30000
 
