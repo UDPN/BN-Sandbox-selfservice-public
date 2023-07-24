@@ -13,8 +13,8 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_PWD}
       # - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - /bsn/bn_volume/mysql/data:/var/lib/mysql
+      - /bsn/bn_volume/mysql/my.cnf:/etc/mysql/my.cnf
       - /etc/localtime:/etc/localtime
     ports:
       - ${MYSQL_MASTER_PORT}:3306
@@ -37,8 +37,8 @@ services:
     command:
       --requirepass "${REDIS_PASSWORD}"
     volumes:
-      - ./redis/data:/data:rw
-      - ./redis/redis.conf:/redis.conf:rw
+      - /bsn/bn_volume/redis/data:/data:rw
+      - /bsn/bn_volume/redis/redis.conf:/redis.conf:rw
       - /etc/localtime:/etc/localtime
     privileged: true
     ports:
