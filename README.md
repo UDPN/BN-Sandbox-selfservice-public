@@ -23,7 +23,7 @@ CPU/Mem/Disk : 4core/8G/40G
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>v20.04TLS</td>
+<td>v20.04LTS</td>
 </tr>
 <tr class="odd">
 <td>docker</td>
