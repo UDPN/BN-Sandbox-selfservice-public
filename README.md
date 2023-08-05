@@ -9,7 +9,7 @@ System prerequisites
 
 ***Minimum hardware spec***
 
-CPU/Mem/Disk : 4-core/8G/40G
+CPU/Mem/Disk : 4core/8G/40G
 
 <br/>
 
@@ -23,15 +23,15 @@ CPU/Mem/Disk : 4-core/8G/40G
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>v20.04.04</td>
+<td>v20.04LTS</td>
 </tr>
 <tr class="odd">
 <td>docker</td>
-<td>v20.10.18</td>
+<td>v20.10.18+</td>
 </tr>
 <tr class="even">
 <td>docker-compose</td>
-<td>v1.27.3</td>
+<td>v1.27.3+</td>
 </tr>
 </tbody>
 </table>
@@ -40,48 +40,41 @@ CPU/Mem/Disk : 4-core/8G/40G
 
 ***Please note that all below commands are for Bash, please change accordingly if you use other shell, e.g. Zsh/ksh .etc***
 
-<br/><br/><br/>
+<br/>
 
 ***Tips to Install docker***
 
-#!/bin/bash
 
+```
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
-
+```
 <br/>
 
 ***Tips to Install docker-compose***
-
+```
 #!/bin/bash
 
 sudo curl -L
 "https://get.daocloud.io/docker/compose/releases/download/1.27.3/docker-compose-$(uname
 -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x
 /usr/local/bin/docker-compose
-
-<br/>
+```
 <br/>
 
 Steps to install a Business Node instance
 ==========================
 
-*Step 1: Download and clone the repo*
-
+**Step 1: clone**
 ```
-#!/bin/bash
-#use https as below or use git@github.com:UDPN/BN-Sandbox-selfservice-public.git as alternative.
 git clone https://github.com/UDPN/BN-Sandbox-selfservice-public.git
-or
-git clone git@github.com:UDPN/BN-Sandbox-selfservice-public.git
-sudo chmod -R 777 BN-Sandbox-selfservice-public/docker-compose
-
+cd BN-Sandbox-selfservice-public
+git checkout "NEW-TAG"
 ```
 
-<br/>
 
-*Step 2: Create DID document/private key for this BN and then start the Business Node*
+**Step 2: Create DID document/private key for this BN**
+
 ```
-#!/bin/bash
 cd BN-Sandbox-selfservice-public/docker-compose
 
 cat udpn-did-sdk-1.0.0.jar.part{0..4} > udpn-did-sdk-1.0.0.jar && shasum -c udpn-did-sdk-1.0.0.jar.shasum && rm udpn-did-sdk-1.0.0.jar.part*
@@ -93,12 +86,32 @@ authKey=$(grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
 
 # Append the authKey to the DID_PRIVATE_KEY line in the .env file
 sed "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env > .env.tmp && mv .env.tmp .env
-
-sudo docker-compose down; sudo docker-compose pull; sudo docker-compose up -d
 ```
-Note: Due to the addition of health detection and the control of sequential startup, the overall startup speed is slow. Please be patient.
 
 <br/>
+
+**Step 3:start service**
+```
+# You can modify the data storage directory yourself .env BN_DATA_VOLUMES
+docker-compose up -d
+```
+
+
+<br/>
+
+**Step 4:stop service**
+```
+docker-compose down
+```
+<br/>
+
+**Step 5:update service**
+```
+1、backup your did private key 
+2、stop your bn service
+3、git clone new tag
+4、start your service
+```
 
 **Support Needed**
 
@@ -119,17 +132,6 @@ If you have any problems installing BN, please check the following:
 If you are still having problems, please collect diagnostic information as below and send it to the UDPN support team.
 
 Info to be collected: (system info including OS info, mem, disk usage; git logs of current repo; docker/docker-compose versions; docker container logs), please double check before send it out.
-```
-#!/bin/bash
-cd BN-Sandbox-selfservice-public/docker-compose
-bash collect_support_info.sh
-```
-
-**How to stop the Business Node?**
-
-sudo docker-compose down
-
-<br/>
 
 **How to register your business node with a Validator Node?**
 
@@ -144,13 +146,13 @@ class="underline">Standard version</span>](https://github.com/UDPN/BN-Sandbox-se
 Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there
 is any conflict, please modify the .env file.
 
--   EUREKA [<span
+-   Eureka [<span
     class="underline">http://localhost:8761/</span>](http://localhost:8761/)
 
 -   Sandbox-web [<span
     class="underline">http://localhost/</span>](http://localhost/)
 
--   bn-web [<span
+-   Bn-web [<span
     class="underline">http://localhost:8080/</span>](http://localhost:8080/)
 
 <br/>
