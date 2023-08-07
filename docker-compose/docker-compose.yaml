@@ -207,6 +207,7 @@ services:
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
+      - ./bnserver/init/vninit.yml:/data/init/vninit.yml:rw
       - /etc/localtime:/etc/localtime:ro
     ports:
       - ${BN_EVENT_PORT}:8080
