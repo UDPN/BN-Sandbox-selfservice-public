@@ -84,7 +84,7 @@ services:
       start_period: 600s 
 
   bninit:
-    image: udpnnetwork/bn-init:v1.2.2.0.0
+    image: udpnnetwork/bn-init:v1.3.3.0.0
     container_name: bninit
     restart: always
     environment:
@@ -179,7 +179,7 @@ services:
 
 
   bn1-event:
-    image: udpnnetwork/bn-event:releaseV1.1.3
+    image: udpnnetwork/bn-event:v1.3.3.0.0
     container_name: bn1-event
     restart: always
     environment:
@@ -253,7 +253,7 @@ services:
       start_period: 600s 
 
   bnprocess:
-    image: udpnnetwork/bn-processcore:v1.2.2.2.1
+    image: udpnnetwork/bn-processcore:v1.3.3.0.0
     container_name: bnprocess
     restart: always
     environment:
@@ -323,7 +323,7 @@ services:
       - udpn-bn
 
   web_sandbox:
-    image: udpnnetwork/web_sandbox:v1.2.2.0.0
+    image: udpnnetwork/web_sandbox:v1.3.3.0.0
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
