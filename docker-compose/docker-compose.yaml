@@ -84,7 +84,7 @@ services:
       start_period: 600s 
 
   bninit:
-    image: udpnnetwork/bn-init:v1.3.3.0.0
+    image: udpnnetwork/bn-init:v1.4.4.0.0
     container_name: bninit
     restart: always
     environment:
@@ -179,7 +179,7 @@ services:
 
 
   bn1-event:
-    image: udpnnetwork/bn-event:v1.3.3.0.0
+    image: udpnnetwork/bn-event:v1.4.4.0.0
     container_name: bn1-event
     restart: always
     environment:
@@ -194,7 +194,7 @@ services:
       - mysql.slave.username=${MYSQL_USER}
       - mysql.slave.password=${MYSQL_PWD}
       - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - event.server.start=${EVENT_SERVER_START}
+      #- event.server.start=${EVENT_SERVER_START}
       - receipt.task.cron=${RECEIPT_TASK_CRON}
       - eventTask.enabled=${EVENTTASK_ENABLED}
       - task.event.filter.manage=${TASK_EVENT_FILTER_MANAGE}
@@ -253,7 +253,7 @@ services:
       start_period: 600s 
 
   bnprocess:
-    image: udpnnetwork/bn-processcore:v1.3.3.0.0
+    image: udpnnetwork/bn-processcore:v1.4.4.0.0
     container_name: bnprocess
     restart: always
     environment:
@@ -283,13 +283,18 @@ services:
       - did.private.key=${DID_PRIVATE_KEY}
       - sol.file.path=${SOL_FILE_PATH}
       - task.Synchronous.audit.status=${TASK_SYNCHRONOUS_AUDIT_STATUS}
-      - auditstatustask.enabled=${AUDITSTATUSTASK_ENABLE}
+      #- auditstatustask.enabled=${AUDITSTATUSTASK_ENABLE}
       - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
       - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
       - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
       - solution.center.url=${SOLUTION_CENTER_URL}
       - feign.client.config.default.connect-timeout=30000
       - feign.client.config.default.read-timeout=30000
+      - task.synchronous.authorize.bn.info=0 0/30 * * * ?
+      - task.synchronous.callable.contract=0 0/3 * * * ?
+      - task.rechain.contract.info=0 0/3 * * * ?
+      - task.history.contract.info=0 0/3 * * * ?
+      - processTask.enabled=true
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
@@ -308,7 +313,7 @@ services:
       start_period: 600s 
 
   bn-web:
-    image: udpnnetwork/bn-web:v1.2.2.0.0
+    image: udpnnetwork/bn-web:v1.4.4.0.0
     container_name: bn-web
     restart: always
     volumes:
@@ -323,7 +328,7 @@ services:
       - udpn-bn
 
   web_sandbox:
-    image: udpnnetwork/web_sandbox:v1.3.3.0.0
+    image: udpnnetwork/web_sandbox:v1.4.4.0.0
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
