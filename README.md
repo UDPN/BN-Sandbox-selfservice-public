@@ -111,7 +111,8 @@ docker-compose down
 2、stop your bn service
 3、git clone new tag
 4、start your service
-Support: 1.2.2.2.1 Upgrading to 1.4.4.0.0
+Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0
+        support 1.3.3.0.0 Upgrading to 1.4.4.0.0
 ```
 
 **Support Needed**
