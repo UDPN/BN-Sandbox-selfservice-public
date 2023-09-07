@@ -313,7 +313,7 @@ services:
       start_period: 600s 
 
   bn-web:
-    image: udpnnetwork/bn-web:v1.4.4.0.0
+    image: udpnnetwork/bn-web:v1.3.4.0.0
     container_name: bn-web
     restart: always
     volumes:
