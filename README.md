@@ -125,8 +125,10 @@ docker-compose down
 4、start your service
 5、load nacos config file
 6、edit bn-common.yaml in nacos whit did-private-key
-Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0
-Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0
+Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0,1.6.6.0.0
+Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0,1.6.6.0.0
+Support: 1.4.4.0.0 Upgrading to 1.6.6.0.0
+
 ```
 
 **Support Needed**
