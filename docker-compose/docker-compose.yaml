@@ -50,6 +50,32 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+  
+  nacos:
+    image: nacos-server:v2.2.3
+    container_name: nacos
+    restart: always
+    privileged: true
+    environment:
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      
+    volumes:
+       - ./nacos/logs/:/home/nacos/logs
+       - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
+    privileged: true
+    ports:
+      - ${NACOS_WEB_PORT}:8848
+      - ${NACOS_MANAGE_PORT}:9848
+      - ${NACOS_GRPC_PORT}:7848
+      - ${NACOS_PUB_PORT}:9849
+    networks:
+      - udpn-bn
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8848/nacos/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   bneureka: 
     image: udpnnetwork/redeureka:releaseV1.1.3
