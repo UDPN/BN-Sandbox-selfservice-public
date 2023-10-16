@@ -92,7 +92,7 @@ services:
         condition: service_healthy
 
   bninit:
-    image: udpnnetwork/bn-init:v1.4.4.0.0
+    image: udpnnetwork/bn-init:v1.6.6.0.0
     container_name: bninit
     restart: always
     environment:
