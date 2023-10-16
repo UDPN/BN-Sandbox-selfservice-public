@@ -121,7 +121,7 @@ services:
       start_period: 600s 
 
   bngateway:
-    image: udpnnetwork/bn-gateway:releaseV1.1.3
+    image: udpnnetwork/bn-gateway:v1.6.6.0.0
     container_name: bngateway
     restart: always
     environment:
@@ -156,7 +156,7 @@ services:
 
 
   bn-event:
-    image: udpnnetwork/bn-event:v1.4.4.0.0
+    image: udpnnetwork/bn-event:v1.6.6.0.0
     container_name: bn-event
     restart: always
     environment:
@@ -174,7 +174,7 @@ services:
       - udpn-bn
 
   bnpermission:
-    image: udpnnetwork/bn-permission:releaseV1.1.3
+    image: udpnnetwork/bn-permission:v1.6.6.0.0
     container_name: bnpermission
     restart: always
     environment:
@@ -206,7 +206,7 @@ services:
       start_period: 600s 
 
   bnprocess:
-    image: udpnnetwork/bn-processcore:v1.4.4.0.0
+    image: udpnnetwork/bn-processcore:v1.6.6.0.0
     container_name: bnprocess
     restart: always
     environment:
@@ -238,7 +238,7 @@ services:
       start_period: 600s 
 
   bn-web:
-    image: udpnnetwork/bn-web:v1.3.4.0.0
+    image: udpnnetwork/bn-web:v1.6.6.0.0
     container_name: bn-web
     restart: always
     volumes:
@@ -253,7 +253,7 @@ services:
       - udpn-bn
 
   web_sandbox:
-    image: udpnnetwork/web_sandbox:v1.4.4.0.0
+    image: udpnnetwork/web_sandbox:v1.6.6.0.0
     # build:
     #   context: ./web_sandbox/
     #   dockerfile: Dockerfile-sandbox
