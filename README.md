@@ -71,8 +71,23 @@ cd BN-Sandbox-selfservice-public
 git checkout "NEW-TAG"
 ```
 
+<br/>
 
-**Step 2: Create DID document/private key for this BN**
+**Step 2:start service**
+```
+# You can modify the data storage directory yourself .env BN_DATA_VOLUMES
+docker-compose up -d
+```
+
+**Step 3: Load nacos config file**
+```
+# please check nacos status , you can open IP:8848/nacos default user nacos passwd nacos
+curl --location --request POST 'http://127.0.0.1:8848/nacos/v1/cs/configs?import=true&namespace=bn' \
+--form 'policy=OVERWRITE' \
+--form 'file=@"nacos-config.zip"'
+```
+
+**Step 4: Create DID document/private key for this BN**
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
@@ -82,19 +97,16 @@ cat udpn-did-sdk-1.0.0.jar.part{0..4} > udpn-did-sdk-1.0.0.jar && shasum -c udpn
 java -jar udpn-did-sdk-1.0.0.jar signature
 
 # Get the authKeyInfo-privateKey from the did_private_keys.txt file
-authKey=$(grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}')
+did_private_keys=grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
 
-# Append the authKey to the DID_PRIVATE_KEY line in the .env file
-sed "s/DID_PRIVATE_KEY=.*/DID_PRIVATE_KEY=$authKey/" .env > .env.tmp && mv .env.tmp .env
+# change bn-common.yaml in nacos ,replace x with didprivatekey
+did:
+  private:
+    key: xxxxxxxxxxxxxxxxxxxx
+
 ```
 
-<br/>
 
-**Step 3:start service**
-```
-# You can modify the data storage directory yourself .env BN_DATA_VOLUMES
-docker-compose up -d
-```
 
 
 <br/>
@@ -107,10 +119,12 @@ docker-compose down
 
 **Step 5:update service**
 ```
-1、backup your did private key 
+1、backup your did-private-key (Tags before 1.4.4.0.0 are in .env)
 2、stop your bn service
 3、git clone new tag
 4、start your service
+5、load nacos config file
+6、edit bn-common.yaml in nacos whit did-private-key
 Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0
 Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0
 ```
