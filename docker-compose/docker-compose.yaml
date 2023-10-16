@@ -15,6 +15,7 @@ services:
     volumes:
       - ${BN_DATA_VOLUMES}/mysql/data:/var/lib/mysql
       - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
       - /etc/localtime:/etc/localtime
     ports:
       - ${MYSQL_MASTER_PORT}:3306
