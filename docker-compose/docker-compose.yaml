@@ -59,10 +59,9 @@ services:
     privileged: true
     environment:
       TZ: Asia/Shanghai
-      LANG: en_US.UTF-8
-      
+      LANG: en_US.UTF-8     
     volumes:
-       - ./nacos/logs/:/home/nacos/logs
+       - .${BN_DATA_VOLUMES}/nacos/logs/:/home/nacos/logs
        - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
     privileged: true
     ports:
@@ -77,38 +76,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-
-  bneureka: 
-    image: udpnnetwork/redeureka:releaseV1.1.3
-    container_name: bneureka
-    restart: always
-    environment:
-      - TZ=Asia/Shanghai
-      - server.port=8761
-      - logging.logpath=/data/logs
-      - logging.level.root=info
-      - spring.security.user.name=${EUREKA_USER}
-      - spring.security.user.password=${EUREKA_PWD}
-      - eureka.client.service-url.defaultZone=http://bneureka:${EUREKA_PORT}/eureka
-      - feign.client.config.default.connect-timeout=30000
-      - feign.client.config.default.read-timeout=30000
-    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
-    volumes:
-      - ${BN_DATA_VOLUMES}/log:/data
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-        - ${EUREKA_PORT}:8761
     depends_on:
-      - mysql
-      - redis
-    networks:
-        - udpn-bn
-    healthcheck: 
-      test: ["CMD-SHELL", "curl -sS 'http://localhost:8761' || exit 1"]
-      interval: 5s 
-      timeout: 5s 
-      retries: 3 
-      start_period: 600s 
+      mysql:
+        condition: service_healthy
 
   bninit:
     image: udpnnetwork/bn-init:v1.4.4.0.0
@@ -117,38 +87,15 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - server.port=8080
-      - logging.logpath=${LOG_SAVE_DIR}
-      - logging.level.root=info
-      - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.master.username=${MYSQL_USER}
-      - mysql.master.password=${MYSQL_PWD}
-      - mysql.slave.url=jdbc:mysql://${MYSQL_SLAVE_HOST}:${MYSQL_SLAVE_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai       
-      - mysql.slave.username=${MYSQL_USER}
-      - mysql.slave.password=${MYSQL_PWD}
-      - spring.redis.host=${REDIS_HOST}
-      - spring.redis.port=${REDIS_PORT}
-      - spring.redis.password=${REDIS_PASSWORD}
-      - spring.redis.database=${REDIS_DATABASE}
       - vn.init.file.path=/data/init/vninit.yml
-      - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - spring.flyway.enabled=true
-      - did.proxy.properties.file=${DID_PROXY_PROP_FILE}
-      - did.proxyMode=${DID_PROXY_MODE}
-      - did.proxy.url=${DID_PROXY_URL}
-      - besu.nodeUrl=${BESU_NODE_URL}
-      - besu.nodePrivateKey=${BESU_NODE_PRIVATEKEY}
-      - besu.didContAddress=${BESU_DID_CONTADDRESS}
-      - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
-      - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
-      - is.online=${IS_ONLINE}
-      - did.private.key=${DID_PRIVATE_KEY}
-      - ENV_VN_GATEWAY=${VN_GATEWAY}
-      - ENV_VN_CODE=${VN_CODE}
-      - ENV_BESU_DID_CONTADDRESS=${BESU_DID_CONTADDRESS}
-      - ENV_BESU_CPT_CONTADDRESS=${BESU_CPT_CONTADDRESS}
-      - ENV_BESU_AUTHISSUERADDRESS=${BESU_AUTHISSUERADDRESS}
-      - feign.client.config.default.connect-timeout=30000
-      - feign.client.config.default.read-timeout=30000
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
     #command: 
     #  - /bin/bash
     #  - -c
@@ -163,7 +110,7 @@ services:
     ports:
       - ${BN_INIT_PORT}:8080
     depends_on:
-      - bneureka
+      - nacos
     networks:
       - udpn-bn
     healthcheck: 
@@ -180,11 +127,14 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - server.port=8080
-      - logging.logpath=${LOG_SAVE_DIR}
-      - logging.level.root=info
-      - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - feign.client.config.default.connect-timeout=30000
-      - feign.client.config.default.read-timeout=30000
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
@@ -193,7 +143,7 @@ services:
     ports:
       - ${BN_GATEWAY_PORT}:8080
     depends_on:
-      - bneureka
+      - nacos
       - bninit
     networks:
       - udpn-bn
@@ -205,34 +155,13 @@ services:
       start_period: 600s 
 
 
-  bn1-event:
+  bn-event:
     image: udpnnetwork/bn-event:v1.4.4.0.0
-    container_name: bn1-event
+    container_name: bn-event
     restart: always
     environment:
       - TZ=Asia/Shanghai
       - server.port=8080
-      - logging.logpath=${LOG_SAVE_DIR}
-      - logging.level.root=info
-      - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.master.username=${MYSQL_USER}
-      - mysql.master.password=${MYSQL_PWD}
-      - mysql.slave.url=jdbc:mysql://${MYSQL_SLAVE_HOST}:${MYSQL_SLAVE_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.slave.username=${MYSQL_USER}
-      - mysql.slave.password=${MYSQL_PWD}
-      - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      #- event.server.start=${EVENT_SERVER_START}
-      - receipt.task.cron=${RECEIPT_TASK_CRON}
-      - eventTask.enabled=${EVENTTASK_ENABLED}
-      - task.event.filter.manage=${TASK_EVENT_FILTER_MANAGE}
-      - spring.redis.host=${REDIS_HOST}
-      - spring.redis.port=${REDIS_PORT}
-      - spring.redis.password=${REDIS_PASSWORD}
-      - spring.redis.database=${REDIS_DATABASE}
-      - did.private.key=${DID_PRIVATE_KEY}
-      - feign.client.config.default.connect-timeout=30000
-      - feign.client.config.default.read-timeout=30000
-
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
@@ -251,17 +180,14 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - server.port=8080
-      - logging.logpath=${LOG_SAVE_DIR}
-      - logging.level.root=info
-      - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.master.username=${MYSQL_USER}
-      - mysql.master.password=${MYSQL_PWD}
-      - mysql.slave.url=jdbc:mysql://${MYSQL_SLAVE_HOST}:${MYSQL_SLAVE_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.slave.username=${MYSQL_USER}
-      - mysql.slave.password=${MYSQL_PWD}
-      - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - feign.client.config.default.connect-timeout=30000
-      - feign.client.config.default.read-timeout=30000
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
@@ -286,42 +212,14 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - server.port=8080
-      - logging.logpath=${LOG_SAVE_DIR}
-      - logging.level.root=info
-      - mysql.master.url=jdbc:mysql://${MYSQL_MASTER_HOST}:${MYSQL_MASTER_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.master.username=${MYSQL_USER}
-      - mysql.master.password=${MYSQL_PWD}
-      - mysql.slave.url=jdbc:mysql://${MYSQL_SLAVE_HOST}:${MYSQL_SLAVE_PORT}/${MYSQL_DATABASE}?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-      - mysql.slave.username=${MYSQL_USER}
-      - mysql.slave.password=${MYSQL_PWD}
-      - spring.redis.host=${REDIS_HOST}
-      - spring.redis.port=${REDIS_PORT}
-      - spring.redis.password=${REDIS_PASSWORD}
-      - spring.redis.database=${REDIS_DATABASE}
-      - did.proxy.properties.file=${DID_PROXY_PROP_FILE}
-      - eureka.client.service-url.defaultZone=http://${EUREKA_USER}:${EUREKA_PWD}@bneureka:${EUREKA_PORT}/eureka
-      - did.proxyMode=${DID_PROXY_MODE}
-      - did.proxy.url=${DID_PROXY_URL}
-      - besu.nodeUrl=${BESU_NODE_URL}
-      - besu.nodePrivateKey=${BESU_NODE_PRIVATEKEY}
-      - besu.didContAddress=${BESU_DID_CONTADDRESS}
-      - besu.cptContAddress=${BESU_CPT_CONTADDRESS}
-      - besu.authIssuerAddress=${BESU_AUTHISSUERADDRESS}
-      - did.private.key=${DID_PRIVATE_KEY}
-      - sol.file.path=${SOL_FILE_PATH}
-      - task.Synchronous.audit.status=${TASK_SYNCHRONOUS_AUDIT_STATUS}
-      #- auditstatustask.enabled=${AUDITSTATUSTASK_ENABLE}
-      - spring.servlet.multipart.max-request-size=${MAX_REQUEST_SIZE}
-      - spring.servlet.multipart.max-file-size=${MAX_FILE_SIZE}
-      - task.refresh.application.state=${TASK_REFRESH_APPLICATION_STATE}"
-      - solution.center.url=${SOLUTION_CENTER_URL}
-      - feign.client.config.default.connect-timeout=30000
-      - feign.client.config.default.read-timeout=30000
-      - task.synchronous.authorize.bn.info=0 0/30 * * * ?
-      - task.synchronous.callable.contract=0 0/3 * * * ?
-      - task.rechain.contract.info=0 0/3 * * * ?
-      - task.history.contract.info=0 0/3 * * * ?
-      - processTask.enabled=true
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
