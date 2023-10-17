@@ -84,11 +84,11 @@ services:
       - ${NACOS_PUB_PORT}:9849
     networks:
       - udpn-bn
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8848/nacos/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+    #healthcheck:
+    #  test: ["CMD-SHELL", "curl -f 'http://localhost:8848/nacos/health'|| exit 1"]
+    #  interval: 10s
+    #  timeout: 5s
+    #  retries: 3
     depends_on:
       mysql:
         condition: service_healthy
