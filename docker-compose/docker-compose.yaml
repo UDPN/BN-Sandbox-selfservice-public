@@ -75,7 +75,7 @@ services:
       - NACOS_AUTH_TOKEN=7KvQB2FgGU2PYpSDCE3sMj5THSfJLjFA32jdHb8NS74Nou2pGmt9wU4TNbggDiiEcFZv7d     
     volumes:
        - .${BN_DATA_VOLUMES}/nacos/logs/:/home/nacos/logs
-       #- ./nacos/conf/application.properties:/home/nacos/conf/application.properties
+       - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
     privileged: true
     ports:
       - ${NACOS_WEB_PORT}:8848
