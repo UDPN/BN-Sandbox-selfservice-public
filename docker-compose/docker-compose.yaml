@@ -68,8 +68,8 @@ services:
       - DB_SERVER=10.0.131.2
       - DB_PORT=3306
       - MYSQL_USER=root
-      - MYSQL_PASS=Red80@80
-      - DB_NAME=nacos
+      - MYSQL_PASS=123456
+      - DB_NAME=nacos_config
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
