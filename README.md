@@ -82,12 +82,26 @@ docker-compose up -d
 **Step 3: Load nacos config file**
 ```
 # please check nacos status , you can open IP:8848/nacos default user nacos passwd nacos
-curl --location --request POST 'http://127.0.0.1:8848/nacos/v1/cs/configs?import=true&namespace=bn' \
---form 'policy=OVERWRITE' \
---form 'file=@"nacos-config.zip"'
+
+# get token
+
+curl -X POST '127.0.0.1:8848/nacos/v1/auth/login' -d 'username=nacos&password=nacos'
+{"accessToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5NzU1MjE2OX0.ODl0HnAuStEdALf1Tu5_kFcQ6S3PhKVb1p8xQMb3qOE8kGh47zY9rk1Yh744H1PZ","tokenTtl":18000,"globalAdmin":true,"username":"nacos"}
+
+# create nacos namespace bn
+
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/console/namespaces?accessToken=eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5NzU1MjE2OX0.ODl0HnAuStEdALf1Tu5_kFcQ6S3PhKVb1p8xQMb3qOE8kGh47zY9rk1Yh744H1PZ&' -d "customNamespaceId=bn&namespaceName=bn&'namespaceDesc=bn"
 ```
 
-**Step 4: Create DID document/private key for this BN**
+**Step 4: Load config for bn namespace**
+```
+# Open the nacos administration page(http://127.0.0.1:8848/nacos) and import the files under nacos/config/xx.zip into the bn namespace
+ 
+Configurations-->import-->Same preparation(Overwrite)-->Upload File-->choice x.zip
+
+```
+
+**Step 5: Create DID document/private key for this BN**
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
@@ -111,19 +125,23 @@ did:
 
 <br/>
 
-**Step 4:stop service**
+**Step 6:stop service**
 ```
 docker-compose down
 ```
 <br/>
 
-**Step 5:update service**
+**Step 7:update service**
 ```
 1、backup your did-private-key (Tags before 1.4.4.0.0 are in .env)
 2、stop your bn service
 3、git clone new tag
 4、start your service
+setp2
+5、load nacos-mysql.sql 
+docker exec mysql 'source /docker-entrypoint-initdb.d/nacos-mysql.sql;'
 5、load nacos config file
+setp3 and setp4
 6、edit bn-common.yaml in nacos whit did-private-key
 Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0,1.6.6.0.0
 Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0,1.6.6.0.0
@@ -164,8 +182,8 @@ class="underline">Standard version</span>](https://github.com/UDPN/BN-Sandbox-se
 Note: The system needs to use port 80,8080-8085,8761,3306,6379. If there
 is any conflict, please modify the .env file.
 
--   Eureka [<span
-    class="underline">http://localhost:8761/</span>](http://localhost:8761/)
+-   Nacos [<span
+    class="underline">http://localhost:8761/</span>](http://localhost:8848/nacos)
 
 -   Sandbox-web [<span
     class="underline">http://localhost/</span>](http://localhost/)
@@ -184,17 +202,7 @@ If you are going to develop your UDPN application with Smart Contract Deployment
 
 Using the Ethereum testnet as a reference, in usual situations, it usually requires approximately 5-10 minutes to complete a transfer transaction due to the operational procedures of public blockchains. Nevertheless, on the Besu chain, employing smart contracts for executing a transfer transaction can be done in just a few seconds. To showcase the rapidity of transactions on the Besu chain, we present TestCoin from PoC#3 as an example for executing a transfer transaction. The diagram below illustrates the exact process of executing this transaction. The manul for this is at [document/TestCoin_Operation_Manual.pdf](document/TestCoin_Operation_Manual.pdf).
 
-<br>
 
-**Upgrade (optional)**
-
-1.  Update the latest repo by run "git pull" in BN-Sandbox-selfservice-public/docker-compose
-
-2.  Upgrade all the images by run "bash upgrade-to-latest.sh" in BN-Sandbox-selfservice-public/docker-compose
-
-3.  Start BN again
-
-<br/>
 
 Advanced Configuration
 ============================

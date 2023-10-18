@@ -162,15 +162,14 @@ services:
       - ${BN_GATEWAY_PORT}:8080
     depends_on:
       - nacos
-      - bninit
     networks:
       - udpn-bn
-    healthcheck: 
-      test: ["CMD-SHELL", "curl -sS 'http://localhost:8080' || exit 1"]
-      interval: 5s 
-      timeout: 5s 
-      retries: 3 
-      start_period: 600s 
+    #healthcheck: 
+    #  test: ["CMD-SHELL", "curl -sS 'http://localhost:8080' || exit 1"]
+    #  interval: 5s 
+    #  timeout: 5s 
+    #  retries: 3 
+    #  start_period: 600s 
 
 
   bn-event:
@@ -216,12 +215,12 @@ services:
       - bngateway
     networks:
       - udpn-bn
-    healthcheck: 
-      test: ["CMD-SHELL", "curl -sS 'http://localhost:8080' || exit 1"]
-      interval: 5s 
-      timeout: 5s 
-      retries: 3 
-      start_period: 600s 
+    #healthcheck: 
+    #  test: ["CMD-SHELL", "curl -sS 'http://localhost:8080' || exit 1"]
+    #  interval: 5s 
+    #  timeout: 5s 
+    # retries: 3 
+    #  start_period: 600s 
 
   bnprocess:
     image: udpnnetwork/bn-processcore:v1.6.6.0.0
@@ -248,12 +247,12 @@ services:
       - bngateway
     networks:
       - udpn-bn
-    healthcheck: 
-      test: ["CMD-SHELL", "curl -sS 'http://localhost:8080' || exit 1"]
-      interval: 5s 
-      timeout: 5s 
-      retries: 3 
-      start_period: 600s 
+    #healthcheck: 
+    #  test: ["CMD-SHELL", "curl -sS 'http://localhost:8080' || exit 1"]
+    #  interval: 5s 
+    #  timeout: 5s 
+    #  retries: 3 
+    #  start_period: 600s 
 
   bn-web:
     image: udpnnetwork/bn-web:v1.6.6.0.0
