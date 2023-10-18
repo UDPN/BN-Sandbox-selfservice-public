@@ -179,6 +179,14 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - server.port=8080
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
     command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
