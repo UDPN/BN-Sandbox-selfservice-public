@@ -86,6 +86,7 @@ docker-compose up -d
 # get token
 
 curl -X POST '127.0.0.1:8848/nacos/v1/auth/login' -d 'username=nacos&password=nacos'
+
 {"accessToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5NzU1MjE2OX0.ODl0HnAuStEdALf1Tu5_kFcQ6S3PhKVb1p8xQMb3qOE8kGh47zY9rk1Yh744H1PZ","tokenTtl":18000,"globalAdmin":true,"username":"nacos"}
 
 # create nacos namespace bn
@@ -111,7 +112,8 @@ cat udpn-did-sdk-1.0.0.jar.part{0..4} > udpn-did-sdk-1.0.0.jar && shasum -c udpn
 java -jar udpn-did-sdk-1.0.0.jar signature
 
 # Get the authKeyInfo-privateKey from the did_private_keys.txt file
-did_private_keys=grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
+# get did_private_keys shell
+grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
 
 # change bn-common.yaml in nacos ,replace x with didprivatekey
 did:
