@@ -122,8 +122,12 @@ did:
 
 ```
 
+**notice**
+```
+# check nacos  ServiceManagemen--->Sever list, if not register 6 services, you need to restart service
 
-
+docker restart docker restart bnprocess bn-event bnpermission bninit
+```
 
 <br/>
 
