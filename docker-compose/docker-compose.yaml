@@ -80,7 +80,6 @@ services:
     volumes:
        - .${BN_DATA_VOLUMES}/nacos/logs/:/home/nacos/logs
        #- ./nacos/conf/application.properties:/home/nacos/conf/application.properties
-    privileged: true
     ports:
       - ${NACOS_WEB_PORT}:8848
       - ${NACOS_MANAGE_PORT}:9848
