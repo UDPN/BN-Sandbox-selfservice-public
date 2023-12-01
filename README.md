@@ -152,6 +152,7 @@ setp3 and setp4
 Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0,1.6.6.0.0
 Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0,1.6.6.0.0
 Support: 1.4.4.0.0 Upgrading to 1.6.6.0.0
+Support: 1.6.6.0.0 Upgrading to 1.7.7.0.0
 
 ```
 
