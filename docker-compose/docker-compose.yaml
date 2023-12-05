@@ -230,6 +230,7 @@ services:
     #  start_period: 600s 
 
   bnprocess:
+    container_name: bnprocess
     image: udpnnetwork/bnprocess:v1.7.0
     restart: always
     environment:
