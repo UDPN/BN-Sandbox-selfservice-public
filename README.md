@@ -124,8 +124,9 @@ did:
 
 **notice**
 ```
-# check nacos  ServiceManagemen--->Sever list, if not register 6 services, you need to restart service
-docker restart bnprocess bn-event bnpermission bninit
+# check nacos  ServiceManagemen--->Sever list, if not register 5 services, you need to restart service
+docker restart bnprocess bnpermission bninit bngateway
+bnevent can only be registered with nacos after they have completed the on-network operation
 ```
 
 <br/>
