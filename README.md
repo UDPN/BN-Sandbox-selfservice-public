@@ -83,7 +83,9 @@ git checkout "NEW-TAG"
 
 ```
 # You can modify the data storage directory yourself .env BN_DATA_VOLUMES
-docker-compose up -d
+docker-compose -f docker-compose-base.yaml up -d 
+wait 5 minutes
+next docker-compose -f docker-compose-bn.yaml up -d
 ```
 
 **Step 3: Load nacos config file**
