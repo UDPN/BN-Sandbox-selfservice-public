@@ -113,7 +113,7 @@ Configurations-->import-->Same preparation(Overwrite)-->Upload File-->choice x.z
 
 ```
 
-**Step 5: Create DID document/private key for this BN**
+**Step 5: Create DID document/private key for this BN and configure the VN you want to connect to the network**  
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
