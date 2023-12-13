@@ -130,7 +130,11 @@ grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
 did:
   private:
     key: xxxxxxxxxxxxxxxxxxxx
-
+# change bn-besu-did.yaml in nacos,replace {ip}:{port} with VNgateway address and port
+  nodeUrl: https://{ip}:{port}/v1/udpn/did/manage
+did:
+  proxy:
+    url: https://{ip}:{port}/v1/udpn/did/manage
 ```
 
 **notice**
