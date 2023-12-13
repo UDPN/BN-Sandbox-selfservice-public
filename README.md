@@ -113,7 +113,7 @@ Configurations-->import-->Same preparation(Overwrite)-->Upload File-->choice x.z
 
 ```
 
-**Step 5: Create DID document/private key for this BN and configure the VN you want to connect to the network**  
+**Step 5: Create DID document/private key for this BN**  
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
@@ -130,11 +130,7 @@ grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
 did:
   private:
     key: xxxxxxxxxxxxxxxxxxxx
-# change bn-besu-did.yaml in nacos,replace {ip}:{port} with VNgateway address and port
-  nodeUrl: https://{ip}:{port}/v1/udpn/did/manage
-did:
-  proxy:
-    url: https://{ip}:{port}/v1/udpn/did/manage
+
 ```
 
 **notice**
