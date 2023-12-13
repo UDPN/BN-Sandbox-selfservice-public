@@ -2,12 +2,12 @@
 vn:
   inits:
     - vnCode: VN0000002
-      vnNodeName: VN0000002 name
+      vnNodeName: VN-RED1
       vnRegion: China
       vnInformation: This is perfect VN-NODE-China.
       vnUrl: https://pre-vngw.udpn.io:443
     - vnCode: VN0000002
-      vnNodeName: VN0000002 name
+      vnNodeName: VN-RED1
       vnRegion: China
       vnInformation: This is perfect VN-NODE-China.
       vnUrl: https://pre-vngw.udpn.io:443

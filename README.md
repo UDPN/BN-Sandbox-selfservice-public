@@ -79,13 +79,12 @@ git checkout "NEW-TAG"
 
 <br/>
 
-**Step 2:start service**
+**Step 2:start the base service**
 
 ```
 # You can modify the data storage directory yourself .env BN_DATA_VOLUMES
 docker-compose -f docker-compose-base.yaml up -d 
-wait 5 minutes
-next docker-compose -f docker-compose-bn.yaml up -d
+
 ```
 
 **Step 3: Load nacos config file**
@@ -133,17 +132,26 @@ did:
 
 ```
 
+**Step 6:start the bn service**
+
+```
+wait 5 minutes
+docker-compose -f docker-compose-bn.yaml up -d 
+
+```
+
 **notice**
 
 ```
-# check nacos  ServiceManagemen--->Sever list, if not register 5 services, you need to restart service
+# check nacos  ServiceManagemen--->Sever list, if it is before the network operation ,the server list not register 4 services, you need to restart service; If it is after the network operation , server list not register 6 services.
 docker restart bnprocess bnpermission bninit bngateway
-bnevent can only be registered with nacos after they have completed the on-network operation
+after the restart, wait 5 minutes and observe again
+bnevent and vngateway can only be registered with nacos after they have completed the on-network operation
 ```
 
 <br/>
 
-**Step 6:stop service**
+**Step 7:stop service**
 
 ```
 docker-compose down
@@ -151,7 +159,7 @@ docker-compose down
 
 <br/>
 
-**Step 7:update service**
+**Step 8:update service**
 
 ```
 1、backup your did-private-key (Tags before 1.4.4.0.0 are in .env)
