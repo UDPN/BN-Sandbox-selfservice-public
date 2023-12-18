@@ -170,8 +170,8 @@ setp2
 5、load nacos-mysql.sql 
 docker exec -it mysql /bin/bash -c "mysql -u root -p123456  < /docker-entrypoint-initdb.d/nacos-mysql.sql"
 6、load nacos config file
-7、start your bn service
 setp3 and setp4
+7、start your bn service
 8、edit bn-common.yaml in nacos whit did-private-key
 Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0,1.6.6.0.0
 Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0,1.6.6.0.0
