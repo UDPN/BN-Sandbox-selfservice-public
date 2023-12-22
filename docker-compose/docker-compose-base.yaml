@@ -101,4 +101,3 @@ networks:
   udpn-bn:
     driver: bridge
     name: udpn-bn
-    external: true
