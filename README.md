@@ -1,5 +1,6 @@
 Setup a Business Node(BN) with docker-compose
 ==========================
+
 <br/>
 <br/>
 
@@ -36,6 +37,7 @@ CPU/Mem/Disk : 4core/8G/40G
 </tbody>
 </table>
 
+
 <br/><br/><br/>
 
 ***Please note that all below commands are for Bash, please change accordingly if you use other shell, e.g. Zsh/ksh .etc***
@@ -48,9 +50,11 @@ CPU/Mem/Disk : 4core/8G/40G
 ```
 sudo curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
+
 <br/>
 
 ***Tips to Install docker-compose***
+
 ```
 #!/bin/bash
 
@@ -59,12 +63,14 @@ sudo curl -L
 -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x
 /usr/local/bin/docker-compose
 ```
+
 <br/>
 
 Steps to install a Business Node instance
 ==========================
 
 **Step 1: clone**
+
 ```
 git clone https://github.com/UDPN/BN-Sandbox-selfservice-public.git
 cd BN-Sandbox-selfservice-public
@@ -73,13 +79,16 @@ git checkout "NEW-TAG"
 
 <br/>
 
-**Step 2:start service**
+**Step 2:start the base service**
+
 ```
 # You can modify the data storage directory yourself .env BN_DATA_VOLUMES
-docker-compose up -d
+docker-compose -f docker-compose-base.yaml up -d 
+
 ```
 
 **Step 3: Load nacos config file**
+
 ```
 # please check nacos status , you can open IP:8848/nacos default user nacos passwd nacos
 
@@ -102,7 +111,7 @@ Configurations-->import-->Same preparation(Overwrite)-->Upload File-->choice x.z
 
 ```
 
-**Step 5: Create DID document/private key for this BN**
+**Step 5: Create DID document/private key for this BN**  
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
@@ -122,36 +131,51 @@ did:
 
 ```
 
-**notice**
-```
-# check nacos  ServiceManagemen--->Sever list, if not register 6 services, you need to restart service
+**Step 6:start the bn service**
 
-docker restart docker restart bnprocess bn-event bnpermission bninit
+```
+wait 5 minutes
+docker-compose -f docker-compose-bn.yaml up -d 
+
+```
+
+**notice**
+
+```
+# check nacos  ServiceManagemen--->Sever list, if it is before the network operation ,the server list not register 4 services, you need to restart service; If it is after the network operation , server list not register 6 services.
+docker restart bnprocess bnpermission bninit bngateway
+after the restart, wait 5 minutes and observe again
+bnevent and vngateway can only be registered with nacos after they have completed the on-network operation
 ```
 
 <br/>
 
-**Step 6:stop service**
+**Step 7:stop service**
+
 ```
 docker-compose down
 ```
+
 <br/>
 
-**Step 7:update service**
+**Step 8:update service**
+
 ```
 1、backup your did-private-key (Tags before 1.4.4.0.0 are in .env)
 2、stop your bn service
 3、git clone new tag
-4、start your service
+4、start your base service
 setp2
 5、load nacos-mysql.sql 
 docker exec -it mysql /bin/bash -c "mysql -u root -p123456  < /docker-entrypoint-initdb.d/nacos-mysql.sql"
 6、load nacos config file
 setp3 and setp4
-7、edit bn-common.yaml in nacos whit did-private-key
+7、start your bn service
+8、edit bn-common.yaml in nacos whit did-private-key
 Support: 1.2.2.2.1 Upgrading to 1.3.3.0.0,1.4.4.0.0,1.6.6.0.0
 Support: 1.3.3.0.0 Upgrading to 1.4.4.0.0,1.6.6.0.0
 Support: 1.4.4.0.0 Upgrading to 1.6.6.0.0
+Support: 1.6.6.0.0 Upgrading to 1.7.7.0.0, need to import the nacos config file again
 
 ```
 
@@ -296,6 +320,7 @@ Advanced Configuration
 </tbody>
 </table>
 
+
 vninit.yml and did\_proxy.properties: These files are the configuration
 files to connect to the VN. You need to replace the configuration file
 to change the VN environment.
@@ -347,6 +372,7 @@ mysql.slave.url=jdbc:mysql://${MYSQL\_SLAVE\_HOST}:${MYSQL\_SLAVE\_PORT}/${MYSQL
 </tbody>
 </table>
 
+
 If you do not have master-slave MYSQL, you can use the same content
 from mysql.master.* to the mysql.slave.*.
 
@@ -386,6 +412,7 @@ from mysql.master.* to the mysql.slave.*.
 </tr>
 </tbody>
 </table>
+
 
 <br/>
 
