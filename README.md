@@ -104,7 +104,6 @@ curl -X POST 'http://127.0.0.1:8848/nacos/v1/console/namespaces?accessToken=eyJh
 ```
 
 **Step 4: Load config for bn namespace**
-
 ```
 # Open the nacos administration page(http://127.0.0.1:8848/nacos) and import the files under nacos/config/xx.zip into the bn namespace
  
