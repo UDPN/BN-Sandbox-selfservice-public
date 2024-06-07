@@ -115,14 +115,21 @@ Configurations-->import-->Same preparation(Overwrite)-->Upload File-->choice x.z
 
 ```
 cd BN-Sandbox-selfservice-public/docker-compose
-
 cat udpn-did-sdk-1.0.0.jar.part{0..4} > udpn-did-sdk-1.0.0.jar && shasum -c udpn-did-sdk-1.0.0.jar.shasum && rm udpn-did-sdk-1.0.0.jar.part*
-
 java -jar udpn-did-sdk-1.0.0.jar signature
+
+OR
+
+docker pull udpnnetwork/bndidsdk:1.0.0
+docker run --rm -it --entrypoint sh -v ./did:/root udpnnetwork/bndidsdk:1.0.0
+cd /root/
+java -jar /app/dpn-did-sdk-1.0.0.jar signature
+
 
 # Get the authKeyInfo-privateKey from the did_private_keys.txt file
 # get did_private_keys shell
 grep "authKeyInfo-privateKey:" did_private_keys.txt | awk '{print $2}'
+
 
 # change bn-common.yaml in nacos ,replace x with didprivatekey
 did:
@@ -130,8 +137,17 @@ did:
     key: xxxxxxxxxxxxxxxxxxxx
 
 ```
+**Step 6:create  chain account and key for bn**
+```
+use sdk create call developer
 
-**Step 6:start the bn service**
+# change bn-processcore.properties in nacos ,replace x with
+bn.chain.account=xxxxxxxxxxxxxxxxxxxx
+bn.chain.account.private.key=xxxxxxxxxxxxxxxxxxxx
+
+```
+
+**Step 7:start the bn service**
 
 ```
 wait 5 minutes
@@ -150,7 +166,7 @@ bnevent and vngateway can only be registered with nacos after they have complete
 
 <br/>
 
-**Step 7:stop service**
+**Step 8:stop service**
 
 ```
 docker-compose down
@@ -158,7 +174,7 @@ docker-compose down
 
 <br/>
 
-**Step 8:update service**
+**Step 9:update service** no support
 
 ```
 1、backup your did-private-key (Tags before 1.4.4.0.0 are in .env)
