@@ -123,7 +123,7 @@ OR
 docker pull udpnnetwork/bndidsdk:1.0.0
 docker run --rm -it --entrypoint sh -v ./did:/root udpnnetwork/bndidsdk:1.0.0
 cd /root/
-java -jar /app/dpn-did-sdk-1.0.0.jar signature
+java -jar /app/udpn-did-sdk-1.0.0.jar signature
 
 
 # Get the authKeyInfo-privateKey from the did_private_keys.txt file
