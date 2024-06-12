@@ -121,7 +121,7 @@ java -jar udpn-did-sdk-1.0.0.jar signature
 OR
 
 docker pull udpnnetwork/bndidsdk:1.0.0
-docker run --rm -it --entrypoint sh -v ./did:/root udpnnetwork/bndidsdk:1.0.0
+docker run --rm -it --entrypoint sh -v $PWD/did:/root udpnnetwork/bndidsdk:1.0.0
 cd /root/
 java -jar /app/udpn-did-sdk-1.0.0.jar signature
 
@@ -139,7 +139,8 @@ did:
 ```
 **Step 6:create  chain account and key for bn**
 ```
-use sdk create call developer
+docker pull udpnnetwork/udpn-besu-sdk:1.0.0
+docker run --rm -it --workdir /root -v $PWD/wallet1:/root udpnnetwork/udpn-besu-sdk:1.0.0
 
 # change bn-processcore.properties in nacos ,replace x with
 bn.chain.account=xxxxxxxxxxxxxxxxxxxx
