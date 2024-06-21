@@ -7,6 +7,7 @@ services:
     restart: always
     privileged: true
     environment:
+      - TZ=Asia/Shanghai
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       #- MYSQL_USER=${MYSQL_USER}
       #- MYSQL_PASSWORD=${MYSQL_PWD}
