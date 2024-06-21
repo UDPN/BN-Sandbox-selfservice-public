@@ -92,15 +92,15 @@ docker-compose -f docker-compose-base.yaml up -d
 ```
 # please check nacos status , you can open IP:8848/nacos default user nacos passwd nacos
 
-# get token
+# get accessToken
 
 curl -X POST '127.0.0.1:8848/nacos/v1/auth/login' -d 'username=nacos&password=nacos'
 
 {"accessToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5NzU1MjE2OX0.ODl0HnAuStEdALf1Tu5_kFcQ6S3PhKVb1p8xQMb3qOE8kGh47zY9rk1Yh744H1PZ","tokenTtl":18000,"globalAdmin":true,"username":"nacos"}
 
-# create nacos namespace bn
+# use accessToken create nacos namespace bn
 
-curl -X POST 'http://127.0.0.1:8848/nacos/v1/console/namespaces?accessToken=eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5NzU1MjE2OX0.ODl0HnAuStEdALf1Tu5_kFcQ6S3PhKVb1p8xQMb3qOE8kGh47zY9rk1Yh744H1PZ&' -d "customNamespaceId=bn&namespaceName=bn&'namespaceDesc=bn"
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/console/namespaces?accessToken={{ accessToken }}&' -d "customNamespaceId=bn&namespaceName=bn&'namespaceDesc=bn"
 ```
 
 **Step 4: Load config for bn namespace**
