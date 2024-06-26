@@ -42,7 +42,6 @@ services:
       - ${BN_DATA_VOLUMES}/redis/data:/data:rw
       - ./redis/redis.conf:/redis.conf:rw
       - /etc/localtime:/etc/localtime
-    privileged: true
     ports:
       - ${REDIS_PORT}:6379
     networks:
@@ -80,7 +79,7 @@ services:
       - NACOS_AUTH_IDENTITY_VALUE=XPcj38vDfjLLSH2g4DaVUokFMeP86WdEt83FYyC9
       - NACOS_AUTH_TOKEN=7KvQB2FgGU2PYpSDCE3sMj5THSfJLjFA32jdHb8NS74Nou2pGmt9wU4TNbggDiiEcFZv7d     
     volumes:
-       - .${BN_DATA_VOLUMES}/nacos/logs/:/home/nacos/logs
+       - ${BN_DATA_VOLUMES}/nacos/logs/:/home/nacos/logs
        #- ./nacos/conf/application.properties:/home/nacos/conf/application.properties
     ports:
       - ${NACOS_WEB_PORT}:8848
