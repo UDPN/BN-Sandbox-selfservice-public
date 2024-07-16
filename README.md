@@ -83,7 +83,9 @@ git checkout "NEW-TAG"
 
 ```
 # You can modify the data storage directory yourself .env BN_DATA_VOLUMES
-docker-compose -f docker-compose-base.yaml up -d 
+docker-compose -f docker-compose-base.yaml up -d
+
+# Check if nacos_config and xxljob_udpn exist in the database
 
 ```
 
