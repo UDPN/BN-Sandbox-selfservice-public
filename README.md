@@ -154,7 +154,10 @@ bn.chain.account.private.key=xxxxxxxxxxxxxxxxxxxx
 
 ```
 wait 5 minutes
-docker-compose -f docker-compose-bn.yaml up -d 
+docker-compose -f docker-compose-bn.yaml up -d
+
+Start xxl-job scheduled task，default user admin password 123456
+Address: http://IP:8880/xxl-job-admin
 
 ```
 
