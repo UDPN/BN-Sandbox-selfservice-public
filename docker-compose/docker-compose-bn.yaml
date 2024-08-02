@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
   bn-init:
-    image: udpnnetwork/bn-init:pre-v1.8.8.5.5
+    image: udpnnetwork/bn-init:pre-v1.8.8.8.8
     container_name: bn-init
     restart: always
     environment:
