@@ -1,9 +1,9 @@
 version: '3.6'
 services:
 
-  bninit:
-    image: udpnnetwork/bninit:v1.7.0
-    container_name: bninit
+  bn-init:
+    image: udpnnetwork/bn-init:pre-v1.8.8.8.8
+    container_name: bn-init
     restart: always
     environment:
       - TZ=Asia/Shanghai
@@ -17,13 +17,7 @@ services:
       - NACOS_USERNAM=nacos
       - NACOS_PSW=nacos
       - NACOS_NAMESPACE=bn
-    #command: 
-    #  - /bin/bash
-    #  - -c
-    #  - "envsubst '$${ENV_VN_GATEWAY},$${ENV_VN_CODE}' </data/init/vninit.template> /data/init/vninit.yml && 
-    #     envsubst '$${ENV_VN_GATEWAY},$${ENV_BESU_DID_CONTADDRESS},$${ENV_BESU_CPT_CONTADDRESS},$${ENV_BESU_AUTHISSUERADDRESS}' </data/init/did_proxy.template> /data/init/did_proxy.properties && \
-    #     exec java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
-    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar bn-init.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data:rw
       - ./bnserver/init/vninit.yml:/data/init/vninit.yml:rw
@@ -41,9 +35,9 @@ services:
     #  retries: 3 
     #  start_period: 600s 
 
-  bngateway:
-    image: udpnnetwork/bngateway:v1.7.0
-    container_name: bngateway
+  xxl-job:
+    image: udpnnetwork/udpn-xxl-job:pre-v1.0.0
+    container_name: xxl-job
     restart: always
     environment:
       - TZ=Asia/Shanghai
@@ -56,15 +50,36 @@ services:
       - NACOS_USERNAM=nacos
       - NACOS_PSW=nacos
       - NACOS_NAMESPACE=bn
-    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+    volumes:
+      - ${BN_DATA_VOLUMES}/log:/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - ${XXL_JOB_PORT}:8080
+    networks:
+      - udpn-bn
+
+  bn-gateway:
+    image: udpnnetwork/bn-gateway:pre-v1.8.8.5.5
+    container_name: bn-gateway
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+      - server.port=8080
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
+    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar bn-gateway.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
       - ./bnserver/init:/data/init
       - /etc/localtime:/etc/localtime:ro
     ports:
       - ${BN_GATEWAY_PORT}:8080
-    # depends_on:
-    #   - nacos
     networks:
       - udpn-bn
     #healthcheck: 
@@ -74,9 +89,35 @@ services:
     #  retries: 3 
     #  start_period: 600s 
 
+  bn-job:
+    image: udpnnetwork/bn-job:pre-v1.8.8.5.5
+    container_name: bn-job
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+      - server.port=8080
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+      - spring.cloud.nacos.discovery.username=nacos
+      - spring.cloud.nacos.discovery.password=nacos
+      - spring.cloud.nacos.discovery.namespace=bn
+      - NACOS_ADDR=nacos:8848
+      - NACOS_USERNAM=nacos
+      - NACOS_PSW=nacos
+      - NACOS_NAMESPACE=bn
+    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar bn-job.jar"]
+    volumes:
+      - ${BN_DATA_VOLUMES}/log:/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - ${BN_JOB_PORT}:8080
+    depends_on:
+      - bn-gateway
+      - xxl-job
+    networks:
+      - udpn-bn
 
   bn-event:
-    image: udpnnetwork/bnevent:v1.7.0
+    image: udpnnetwork/bn-event:pre-v1.8.8.5.5
     container_name: bn-event
     restart: always
     environment:
@@ -90,20 +131,20 @@ services:
       - NACOS_USERNAM=nacos
       - NACOS_PSW=nacos
       - NACOS_NAMESPACE=bn
-    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar bn-event.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
       - /etc/localtime:/etc/localtime:ro
     ports:
       - ${BN_EVENT_PORT}:8080
     depends_on:
-      - bngateway
+      - bn-gateway
     networks:
       - udpn-bn
 
-  bnpermission:
-    image: udpnnetwork/bn-permission:v1.6.6.0.0
-    container_name: bnpermission
+  bn-permission:
+    image: udpnnetwork/bn-permission:pre-v1.8.8.5.5
+    container_name: bn-permission
     restart: always
     environment:
       - TZ=Asia/Shanghai
@@ -116,14 +157,14 @@ services:
       - NACOS_USERNAM=nacos
       - NACOS_PSW=nacos
       - NACOS_NAMESPACE=bn
-    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar bn-permission.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
       - /etc/localtime:/etc/localtime:ro
     ports:
       - ${BN_PERMISSION_PORT}:8080
     depends_on:
-      - bngateway
+      - bn-gateway
     networks:
       - udpn-bn
     #healthcheck: 
@@ -133,9 +174,9 @@ services:
     # retries: 3 
     #  start_period: 600s 
 
-  bnprocess:
-    container_name: bnprocess
-    image: udpnnetwork/bnprocess:v1.7.0
+  bn-process:
+    image: udpnnetwork/bn-processcore:pre-v1.8.8.5.5
+    container_name: bn-process
     restart: always
     environment:
       - TZ=Asia/Shanghai
@@ -148,14 +189,14 @@ services:
       - NACOS_USERNAM=nacos
       - NACOS_PSW=nacos
       - NACOS_NAMESPACE=bn
-    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+    command: ["/bin/bash", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar bn-process.jar"]
     volumes:
       - ${BN_DATA_VOLUMES}/log:/data
       - /etc/localtime:/etc/localtime:ro
     ports:
       - ${BN_PROCESS_PORT}:8080
     depends_on:
-      - bngateway
+      - bn-gateway
     networks:
       - udpn-bn
     #healthcheck: 
@@ -166,7 +207,7 @@ services:
     #  start_period: 600s 
 
   bn-web:
-    image: udpnnetwork/bn-web:v1.6.6.0.0
+    image: udpnnetwork/bn-web:pre-v1.5.8.3.2
     container_name: bn-web
     restart: always
     volumes:
@@ -175,16 +216,13 @@ services:
     ports:
       - 8080:80
     depends_on:
-      - bnpermission
-      - bnprocess
+      - bn-permission
+      - bn-process
     networks:
       - udpn-bn
 
   web_sandbox:
-    image: udpnnetwork/boxweb:v1.7.0
-    # build:
-    #   context: ./web_sandbox/
-    #   dockerfile: Dockerfile-sandbox
+    image: udpnnetwork/boxweb:pre-v1.8.8.5.5
     container_name: web_sandbox
     restart: always
     environment:
@@ -197,8 +235,8 @@ services:
     ports:
       - 80:80
     depends_on:
-      - bnpermission
-      - bnprocess
+      - bn-permission
+      - bn-process
     networks:
       - udpn-bn
 
