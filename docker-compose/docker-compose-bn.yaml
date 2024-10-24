@@ -59,7 +59,7 @@ services:
       - udpn-bn
 
   bn-gateway:
-    image: udpnnetwork/bn-gateway:pre-v1.8.8.5.5
+    image: udpnnetwork/bn-gateway:pre-v1.8.8.8.8
     container_name: bn-gateway
     restart: always
     environment:
@@ -90,7 +90,7 @@ services:
     #  start_period: 600s 
 
   bn-job:
-    image: udpnnetwork/bn-job:pre-v1.8.8.5.5
+    image: udpnnetwork/bn-job:pre-v1.8.8.8.8
     container_name: bn-job
     restart: always
     environment:
@@ -117,7 +117,7 @@ services:
       - udpn-bn
 
   bn-event:
-    image: udpnnetwork/bn-event:pre-v1.8.8.5.5
+    image: udpnnetwork/bn-event:pre-v1.8.8.8.8
     container_name: bn-event
     restart: always
     environment:
@@ -143,7 +143,7 @@ services:
       - udpn-bn
 
   bn-permission:
-    image: udpnnetwork/bn-permission:pre-v1.8.8.5.5
+    image: udpnnetwork/bn-permission:pre-v1.8.8.8.8
     container_name: bn-permission
     restart: always
     environment:
@@ -175,7 +175,7 @@ services:
     #  start_period: 600s 
 
   bn-process:
-    image: udpnnetwork/bn-processcore:pre-v1.8.8.5.5
+    image: udpnnetwork/bn-processcore:pre-v1.8.8.8.8
     container_name: bn-process
     restart: always
     environment:
